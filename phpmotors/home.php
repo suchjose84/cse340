@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
+    <title>PHP Motors Home Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="css/styles.css" media="screen">
     <link rel="stylesheet" href="css/styles_tablet.css" media="screen">
@@ -14,22 +14,8 @@
 
 <body>
     <div id="wrapper">
-        <header>
-            <img src="images/site/logo.png" alt="logoImg">
-            <a id="myAccountText" href="">My Account</a>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Classic</a></li>
-                <li><a href="">Sports</a></li>
-                <li><a href="">SUV</a></li>
-                <li><a href="">Trucks</a></li>
-                <li><a href="">Used</a></li>
-
-
-            </ul>
-        </nav>
+        <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
+        <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/nav.php'?>
         <main>
             <section id="firstSection">
             <h1>Welcome to PHP Motors!</h1>
@@ -85,15 +71,7 @@
 
             </section>
         </main>
-        <footer>
-            <ul>
-                <li>&#169; PHP Motors, All rights reserved.</li>
-                <li>All images used are believed to be in "Fair Use". Please notify the author if any are not
-                    and they will be removed.
-                </li>
-                <li>Last Updated: 30 March, 2018</li>
-            </ul>
-        </footer>
+        <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/footer.php'?>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
