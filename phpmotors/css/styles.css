@@ -8,74 +8,210 @@ blackish = #3a3a3a , rgb(58,58,58)
 whitish = #ffffff
 
 */
+body {
+    background-image: url("../images/site/small_check.jpg");
+}
+h1,h2,p {
+    padding: 0;
+    margin: 0;
+}
+
 a {
     text-decoration: none;
 }
+
 ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-image: url("images/site/checkerboard.jpg");
     font-family: 'Genos', Arial, Helvetica, sans-serif;
-    color: #3a3a3a;
-}
-#wrapper {
-    width: 95%;
-    margin: 0 auto;
-    margin-top: 1rem;
-    border: 5px solid #4c96d7;
-    border-radius: 5px;
-    background-color: #ffffff;
+    color: black;
 }
 
+#wrapper {
+    width: 100%;
+    background-color: #ffffff;
+    
+}
+
+
 header {
+    height: 50px;
     display: flex;
     justify-content: space-between;
 }
+
 #myAccountText {
-    margin-top: 15px;
-    margin-right: 40px;
-    
-}
-#myAccountText a{
-    font-size: 1.5rem;
-    font-weight:400;
+    margin-top: 10px;
+    margin-right: 15px;
+    font-size: 1.3rem;
+    font-weight: 400;
     color: #3a3a3a;
-    
+
 }
+
 nav {
     background-color: #3a3a3a;
-    
+
 }
-nav ul{
-    margin: 0;
-    padding: 0;
+
+nav ul {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
+
 nav li {
-    margin-left: 15px;
     padding: 5px;
-
-
 }
+
 nav li:hover {
     background-color: #4c96d7;
-
-
 }
+
 nav a {
-    font-size: 2rem;
+    font-size: 1.1rem;
     color: #ffffff;
 }
+
 main {
-    padding: 1%;
+    padding: 5px 2%;
+    color: black;
+    width: 100%;
+
 }
 
 footer {
     border-top: 3px solid #3a3a3a;
+    margin-top: 30px;
 }
+
 footer li {
     text-align: center;
+}
+
+main h1 {
+    font-size: 1.3rem;
+}
+
+main #carSpecCard {
+    width: 200px;
+    position: absolute;
+    top: 110px;
+    left: 2%;
+}
+
+main #carSpecCard h2 {
+    color: #4c96d7;
+    font-size: 1.1rem;
+
+}
+
+main #carSpecCard p {
+    color: #4c96d7;
+    font-size: .9rem;
+    margin: 0;
+
+}
+
+#ownToday1 {
+    display: none;
+    width: 68%;
+    border: 1px solid #3a3a3a;
+    border-radius: 0;
+    background-color: #4c96d7;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 20px;
+
+}
+
+
+#ownToday2 {
+    display: block;
+    margin: 25px auto 0 auto;
+    border: 1px solid #3a3a3a;
+    border-radius: 0;
+    background-color: #4c96d7;
+    font-size: 1.5rem;
+    width: 45%;
+    height: 50px;
+    color:#3a3a3a;
+    
+}
+#ownToday1:hover {
+    opacity: 0.8;
+    border: 2px solid #4c96d7;
+}
+#ownToday2:hover {
+    opacity: 0.8;
+    border: 2px solid #4c96d7;
+}
+
+main #bigCarPic {
+    width: 96%;
+    display: block;
+    margin: 40px auto 0 auto;
+}
+#upgradesReviews {
+    margin-top: 20px;
+}
+
+.sectionWrappers {
+    margin-top: 20px;
+}
+.sectionWrappers h2{
+    font-size: 1.1rem;
+}
+.sectionWrappers ul {
+    margin-top: 15px;
+}
+
+#upgradesWrapper ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.upgrImgBox {
+    padding: 5px 0 5px 0;
+    width: 100%;
+    height: 80px;
+    background-color: #4c96d7;
+}
+
+.upgradesLI img {
+    display: block;
+    margin: 0 auto;
+    height: 80%;
+
+}
+
+.upgrADiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.upgrADiv a {
+    text-decoration: underline;
+    font-size: medium;
+    font-weight: bold;
+
+}
+
+#reviewsWrapper ul {
+    margin-left: 30px;
+    list-style-type: disc;
+
+}
+
+#reviewsWrapper li {
+    margin-top: 10px;
+    font-size: .9rem;
+
 }

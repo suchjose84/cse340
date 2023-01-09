@@ -1,0 +1,37 @@
+@media only screen and (min-width: 35em){
+    nav a {
+        font-size: 1.2rem;
+    }
+    main h1 {
+        font-size: 1.4rem;
+    }
+    main #carSpecCard {
+        top: 130px;
+        left: 5%;
+    }
+    main #carSpecCard h2 {
+        font-size: 1.2rem;
+    }
+    main #carSpecCard p {
+        font-size: 1rem;
+    }
+    #upgradesReviews {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    .sectionWrappers {
+        width: 47%;
+    }
+    .sectionWrappers h2{
+        font-size: 1.2rem;
+    }
+    
+    #reviewsWrapper ul {
+        margin-left: 15px;
+    
+    }
+    #reviewsWrapper li {
+        font-size: 1rem;
+    }
+}

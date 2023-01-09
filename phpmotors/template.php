@@ -8,9 +8,11 @@
     <title>Template</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="css/styles.css" media="screen">
+    <link rel="stylesheet" href="css/styles_tablet.css" media="screen">
+    <link rel="stylesheet" href="css/styles_large.css" media="screen">
 </head>
 
-<body>
+<body style="background-image: url('images/site/small_check.jpg');">
     <div id="wrapper">
         <header>
             <div id="logoImage"><img src="images/site/logo.png" alt="logoImg"></div>
@@ -24,6 +26,7 @@
                 <li><a href="">SUV</a></li>
                 <li><a href="">Trucks</a></li>
                 <li><a href="">Used</a></li>
+            
 
             </ul>
         </nav>

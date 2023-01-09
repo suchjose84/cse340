@@ -1,0 +1,71 @@
+@media only screen and (min-width: 64rem) {
+
+    #wrapper {
+        width: 85%;
+        margin: 20px auto 0 auto;
+        border: 8px solid #4c96d7;
+        border-radius: 10px;
+    }
+
+    header {
+        height: 70px;
+    }
+    #myAccountText {
+        margin-top: 15px;
+        margin-right: 20px;
+        font-size: 1.5rem;
+    
+    }
+
+    nav ul {
+        justify-content: flex-start;
+    }
+
+    nav li {
+        margin-left: 10px;
+    }
+
+    nav a {
+        font-size: 1.5rem;
+    }
+
+    main h1 {
+        font-size: 1.7rem;
+    }
+
+    main #carSpecCard {
+        top: 220px;
+        left: 12%;
+    }
+
+    main #carSpecCard h2 {
+        font-size: 1.5rem;
+    }
+
+    main #carSpecCard p {
+        font-size: 1.3rem;
+    }
+
+    .sectionWrappers h2 {
+        font-size: 1.3rem;
+    }
+
+    #reviewsWrapper ul {
+        margin-left: 15px;
+
+    }
+
+    #reviewsWrapper li {
+        font-size: 1.1rem;
+    }
+
+    #ownToday1 {
+        display: block;
+
+    }
+
+
+    #ownToday2 {
+        display: none;
+    }
+}
