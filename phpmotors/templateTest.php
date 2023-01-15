@@ -14,11 +14,9 @@
 
 <body style="background-image: url('images/site/small_check.jpg');">
     <div id="wrapper">
-        <!--header, nav, and footer templates-->
-        <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
-        <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/nav.php'?>
-        <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/footer.php'?>
-        
+        <header>header</header>
+        <nav>nav</nav>
+        <footer>footer</footer>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
