@@ -219,3 +219,9 @@ main #bigCarPic {
     font-size: .9rem;
 
 }
+
+
+/*Error 500 */
+#error {
+    margin-top: 15px;
+}

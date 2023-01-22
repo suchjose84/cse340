@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Motors Home Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="css/styles.css" media="screen">
-    <link rel="stylesheet" href="css/styles_tablet.css" media="screen">
-    <link rel="stylesheet" href="css/styles_large.css" media="screen">
+    <link rel="stylesheet" href="/cse340/phpmotors/css/styles.css" media="screen">
+    <link rel="stylesheet" href="/cse340/phpmotors/css/styles_tablet.css" media="screen">
+    <link rel="stylesheet" href="/cse340/phpmotors/css/styles_large.css" media="screen">
 </head>
 
 <body>
