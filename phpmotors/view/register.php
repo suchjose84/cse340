@@ -13,8 +13,8 @@
     
 </head>
 
-<body style="background-image: url('images/site/small_check.jpg');">
-    <div id="wrapper">
+<body>
+    <div class="wrapper">
         <!--header, nav, and footer templates-->
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
         <nav><?php echo $navList; ?></nav>
@@ -27,11 +27,11 @@
                         <label><input required type="text" class="input nameInput" placeholder="First Name" autofocus></label>
                         <label><input required class="input nameInput" type="text" placeholder="Last Name"></label>
                     </div>
-                    <label><input required type="email" class="emailInput input" placeholder="Email e.g. johndoe@mail.com"></label>
-                    <button type="button" id="regButton">Sign up</button>
+                    <label class='formLabels'><input required type="email" class="emailInput input" placeholder="Email e.g. johndoe@mail.com"></label>
+                    <button type="button" id="regButton" class='submitButton'>Sign up</button>
 
                 </form>
-                <p id="regP">Already have an account?<a href="http://localhost/cse340/phpmotors/accounts/?action=login"> Log in</a></p>
+                <p id="regP">Already have an account? <a href="http://localhost/cse340/phpmotors/accounts/?action=login">Log in</a></p>
             </section>
         </main>
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/footer.php'?>

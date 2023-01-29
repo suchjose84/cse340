@@ -1,4 +1,8 @@
 @media only screen and (min-width: 35em){
+    body {
+        background-image: url("../images/site/small_check.jpg");
+    }
+    
     nav a {
         font-size: 1.2rem;
     }
@@ -34,4 +38,11 @@
     #reviewsWrapper li {
         font-size: 1rem;
     }
+
+    .mainSections {
+        width: 50%;
+        margin: 30px auto 0 auto;
+    }
+
 }
+

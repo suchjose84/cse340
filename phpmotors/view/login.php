@@ -12,32 +12,28 @@
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles_large.css" media="screen">
 </head>
 
-<body style="background-image: url('images/site/small_check.jpg');">
-    <div id="wrapper">
+<body>
+    <div class="wrapper">
         <!--header, nav, and footer templates-->
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
         <nav><?php echo $navList; ?></nav>
 
-        <main class="mainPage" id="mainlogin">
+        <main class="mainPage" id="mainLogin">
             <section class='mainSections'>
-                <h1>Welcome Back</h1>
+                <h1 id="loginH1">Welcome Back</h1>
                 <form>
-                    <div>
-                        <label><input type="text" id='loginEmail' class='input' placeholder="Email"></label>
-                        <label><input type="password" id='loginPassword' class='input' placeholder="Password"></label>
-                        <button type="button" id="loginButton">Log In</button>
-                        <p id='loginP'>No account yet?<a href="http://localhost/cse340/phpmotors/accounts/?action=register"> Register</a></p>
-                    </div>
+                    <label class='formLabels'><input type="text" id='loginEmailInput' class='input emailInput'
+                            placeholder="Email e.g. johndoe@mail.com" autofocus></label>
+                    <label class='formLabels'><input type="password" id='loginPasswordInput' class='input passwordInput'
+                            placeholder="Password"></label>
+                    <button type="button" id="loginButton" class='submitButton'>Log In</button>
+                    <p id='loginP'>No account yet? <a href="http://localhost/cse340/phpmotors/accounts/?action=register">Register</a></p>
 
 
                 </form>
             </section>
 
         </main>
-
-
-
-
 
 
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/footer.php'?>

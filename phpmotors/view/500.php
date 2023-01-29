@@ -13,7 +13,7 @@
 
 </head>
 
-<body style="background-image: url('/cse340/phpmotors/images/site/small_check.jpg');">
+<body>
     <div id="wrapper">
         <!--header, nav, and footer templates-->
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>

@@ -2,7 +2,7 @@
 
 /* PHPMotors Accounts Controller
          * This file is accessed at http://lvh.me/phpmotors/
-         * or at http://localhost/phpmotors/accounts/index.php
+         * or at http://localhost/cse340/phpmotors/accounts/index.php
          * 
          * This file controls all traffic to the http://lvh.me/phpmotors/ URL
 */

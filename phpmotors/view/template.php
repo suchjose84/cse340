@@ -15,7 +15,7 @@
 
 </head>
 
-<body style="background-image: url('images/site/small_check.jpg');">
+<body>
     <div id="wrapper">
         <!--header, nav, and footer templates-->
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>

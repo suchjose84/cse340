@@ -67,4 +67,8 @@
     #ownToday2 {
         display: none;
     }
+
+    .mainSections {
+        width: 30%;
+    }
 }
