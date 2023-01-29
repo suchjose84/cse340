@@ -2,7 +2,7 @@
 
 /* PHPMotors Accounts Controller
          * This file is accessed at http://lvh.me/phpmotors/
-         * or at http://lvh.me/phpmotors/accounts/index.php
+         * or at http://localhost/phpmotors/accounts/index.php
          * 
          * This file controls all traffic to the http://lvh.me/phpmotors/ URL
 */
@@ -29,10 +29,15 @@ $action = filter_input(INPUT_POST, 'action');
     }        
         
     switch ($action) {
-        case '';
-            
+        case 'login';
+            include '../view/login.php';
+            break;
+        case 'register';
+            include '../view/register.php';
             break;
         default:
+            include '../view/home.php';
+            break;
     }        
 
 

@@ -15,8 +15,8 @@
 <body>
     <div id="wrapper">
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
-        <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/nav.php'?>
-        <main>
+        <nav><?php echo $navList; ?></nav>
+        <main class="mainPage" id="mainHome">
             <section id="firstSection">
             <h1>Welcome to PHP Motors!</h1>
             <div id="carSpecCard">
