@@ -7,17 +7,20 @@
         font-size: 1.2rem;
     }
     main h1 {
-        font-size: 1.4rem;
+        font-size: 2rem;
     }
     main #carSpecCard {
-        top: 130px;
-        left: 5%;
+        top: 170px;
+        left: 10%;
     }
     main #carSpecCard h2 {
-        font-size: 1.2rem;
+        font-size: 1.7rem;
     }
     main #carSpecCard p {
-        font-size: 1rem;
+        font-size: 1.4rem;
+    }
+    main #bigCarPic {
+        width: 80%;
     }
     #upgradesReviews {
         display: flex;

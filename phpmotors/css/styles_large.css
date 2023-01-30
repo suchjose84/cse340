@@ -28,21 +28,17 @@
         font-size: 1.5rem;
     }
 
-    main h1 {
-        font-size: 1.7rem;
-    }
-
     main #carSpecCard {
         top: 220px;
-        left: 12%;
+        left: 10%;
     }
 
     main #carSpecCard h2 {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
 
     main #carSpecCard p {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     .sectionWrappers h2 {

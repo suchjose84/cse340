@@ -20,7 +20,7 @@
         <nav><?php echo $navList; ?></nav>
         <main class="mainPage" id="mainRegister">
             <section class='mainSections'>
-                <h1>Sign up</h1>
+                <h1>Register to PHPMotors</h1>
                 <p>It's quick and simple.</p>
                 <form class='forms'>
                     <div>
