@@ -21,13 +21,20 @@
         <main class="mainPage" id="mainLogin">
             <section class='mainSections'>
                 <h1 id="loginH1">Welcome Back</h1>
+
+                <?php
+                    if (isset($message)) {
+                    echo $message;
+                    }
+                ?>
+                
                 <form>
                     <label class='formLabels'><input type="text" id='loginEmailInput' class='input emailInput'
                             placeholder="Email e.g. johndoe@mail.com" autofocus></label>
                     <label class='formLabels'><input type="password" id='loginPasswordInput' class='input passwordInput'
                             placeholder="Password"></label>
                     <button type="button" id="loginButton" class='submitButton'>Log In</button>
-                    <p id='loginP'>No account yet? <a href="http://localhost/cse340/phpmotors/accounts/?action=register">Register</a></p>
+                    <p id='loginP'>No account yet? <a href="http://localhost/cse340/phpmotors/accounts/?action=signup">Register</a></p>
 
 
                 </form>
