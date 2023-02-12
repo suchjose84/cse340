@@ -17,7 +17,7 @@
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
         <nav><?php echo $navList; ?></nav>
         <main class="mainPage" id="mainHome">
-            <section id="firstSection">
+            <section class="heroSection">
             <h1>Welcome to PHP Motors!</h1>
             <div id="carSpecCard">
                 <h2>DMC Delorean</h2>
@@ -30,9 +30,9 @@
             <img id="bigCarPic" src="images/delorean.jpg" alt="bigCarPIc">
             <button id="ownToday2" type="Button">Own Today</button>
             </section>
-            <section id="upgradesReviews">
+            <section class="reviewsSection">
 
-                <div class="sectionWrappers" id="reviewsWrapper">
+                <div class="upgrRevDiv" id="reviewsWrapper">
                     <h2>DMC Deloran Reviews</h2>
                     <ul>
                         <li>"So fast, it's like travelling in time" (4/5)</li>
@@ -42,7 +42,7 @@
                         <li>"80's livin and I love it!" (5/5)</li>
                     </ul>
                 </div>
-                <div class="sectionWrappers" id="upgradesWrapper">
+                <div class="upgrRevDiv" id="upgradesWrapper">
                     <h2>Deloran Upgrades</h2>
                     <ul>
                         <li class="upgradesLI">

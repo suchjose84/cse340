@@ -19,7 +19,7 @@
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
         <nav><?php echo $navList; ?></nav>
         <main class="mainPage" id="mainRegister">
-            <section class='mainSections'>
+            <section class='boxShadow'>
                 <h1>Register to PHPMotors</h1>
                 <p>It's quick and simple.</p>
 

@@ -16,11 +16,11 @@
 </head>
 
 <body>
-    <div id="wrapper">
+    <div class="wrapper">
         <!--header, nav, and footer templates-->
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
         <nav><?php echo $navList; ?></nav>
-        <main class="mainPage" id="templateMain">
+        <main class="mainPage">
             <h1>Content Here</h1>
         </main>
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/footer.php'?>

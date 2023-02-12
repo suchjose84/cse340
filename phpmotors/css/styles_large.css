@@ -1,12 +1,5 @@
 @media only screen and (min-width: 64rem) {
 
-    #wrapper {
-        width: 85%;
-        margin: 20px auto 0 auto;
-        border: 8px solid #4c96d7;
-        border-radius: 10px;
-    }
-
     header {
         height: 70px;
     }
@@ -41,7 +34,19 @@
         font-size: 1.4rem;
     }
 
-    .sectionWrappers h2 {
+    .upgrRevDiv {
+        width: 47%;
+    }
+
+    .upgrRevDiv h2 {
+        font-size: 1.3rem;
+    } 
+
+    .boxShadow {
+        width: 40%;
+    }
+
+    .boxShadow h2 {
         font-size: 1.3rem;
     }
 
