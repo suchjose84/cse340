@@ -27,7 +27,7 @@
 
     //Build a drop down list using the $classifications array
     $classificationList = '<label for="vehicleList">';
-    $classificationList .= '<select id="vehicleList" name="classificationID" autofocus>';
+    $classificationList .= '<select id="vehicleList" name="classificationID" autofocus required>';
     $classificationList .= '<option value="" selected>Choose a car classification</option>';
     foreach($classifications as $classification) {
         $classificationList .= "<option value='" . $classification['classificationID'] . "'>" . 

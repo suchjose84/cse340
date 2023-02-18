@@ -32,14 +32,14 @@
             <form class="forms vehicleManForm" action="/cse340/phpmotors/vehicles/?action=add-vehicle" method="post">
             
             <?php echo $classificationList;?>
-            <label for="make" class="top">Make<input type="text" id="make" name="invMake" class="input"></label>
-            <label for="model" class="top">Model<input type="text" id="model" name="invModel" class="input"></label>
-            <label for="description" class="top">Description<textarea id="description" name="invDescription" class="input"></textarea></label>
-            <label for="image" class="top">Image Path<input type="text" id="image" name="invImage" class="input"></label>
-            <label for="thumbnail" class="top">Thumbnail Path<input type="text" id="thumbnail" name="invThumbnail" class="input"></label>
-            <label for="price" class="top">Price<input type="number" id="price" name="invPrice" min="1" max="1000000000" class="input"></label>
-            <label for="inStock" class="top"># in Stock<input type="number" id="inStock" name="invStock" min="1" max="1000" class="input"></label>
-            <label for="color" class="top">Color<input type="text" id="color" name="invColor" class="input"></label>
+            <label for="make" class="top">Make<input type="text" id="make" name="invMake" class="input" required></label>
+            <label for="model" class="top">Model<input type="text" id="model" name="invModel" class="input" required></label>
+            <label for="description" class="top">Description<textarea id="description" name="invDescription" class="input" required></textarea></label>
+            <label for="image" class="top">Image Path<input type="text" id="image" name="invImage" class="input" required></label>
+            <label for="thumbnail" class="top">Thumbnail Path<input type="text" id="thumbnail" name="invThumbnail" class="input" required></label>
+            <label for="price" class="top">Price<input type="number" id="price" name="invPrice" min="1" max="1000000000" class="input" required></label>
+            <label for="inStock" class="top"># in Stock<input type="number" id="inStock" name="invStock" min="1" max="1000" class="input" required></label>
+            <label for="color" class="top">Color<input type="text" id="color" name="invColor" class="input" required></label>
             <input type="submit" name='submit' class="vehicleSubmitButton submitButton" value='Submit'>
             <input type="hidden" name='action' value='addVehicleSubmit'> 
             

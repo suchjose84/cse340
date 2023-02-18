@@ -29,7 +29,7 @@
                 <form class="forms vehicleManForm" action="/cse340/phpmotors/vehicles/" method="post">
 
                     <label class="top" for="classificationName">Classification Name
-                        <input type="text" class="input" id="classificationName" name="classificationName" autofocus></label>
+                        <input type="text" class="input" id="classificationName" name="classificationName" autofocus required></label>
                     <input type="submit" class="vehicleSubmitButton submitButton" value="Submit">
                     <input type="hidden" name="action" value="addClassificationSubmit">
 
