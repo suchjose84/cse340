@@ -29,7 +29,7 @@
                 <form class="forms vehicleManForm" action="/cse340/phpmotors/vehicles/" method="post">
 
                     <label class="top" for="classificationName">
-                        <span>Classification name should not be more than 30 characters.</span>
+                        <span class="pwNote">Classification name should not be more than 30 characters.</span>
                         <input type="text" class="input" id="classificationName" name="classificationName" autofocus 
                         placeholder="Car Classification" required maxlength="30"></label>
                     <input type="submit" class="vehicleSubmitButton submitButton" value="Submit">

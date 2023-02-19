@@ -46,7 +46,7 @@
                         name="clientEmail" required <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>>
                     </label>
                     <label class='formLabels' for='clientPassword'>
-                    <span>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
+                    <span class="pwNote">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
                         <input type="password" id='password' class="passwordInput input" placeholder="Password"
                             name="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
                     </label>

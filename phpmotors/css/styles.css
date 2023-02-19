@@ -407,14 +407,14 @@ textarea:focus {
 }
 
 .errorMessage {
-    margin-top: 25px;
+    margin-top: 15px;
     color: red;
-    font-size: 1.1rem;
+    font-weight: bold;
 }
 .successMessage {
-    margin-top: 25px;
+    margin-top: 15px;
     color: green;
-    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 /*********INVALID FORM INPUT***********/
