@@ -30,8 +30,8 @@
                 
                 <form class='forms' action="/cse340/phpmotors/accounts/index.php" method="post">
                     <label class='formLabels'>
-                        <input type="email" name="clientEmail" id='loginEmailInput' class='input emailInput'placeholder="Email e.g. johndoe@mail.com"
-                        autofocus required <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>>
+                        <input type="email" name="clientEmail" id='loginEmailInput' class='input emailInput'
+                        placeholder="Email e.g. johndoe@mail.com" autofocus required <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>>
                     </label>
                     <label class='formLabels'>
                         <span>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>

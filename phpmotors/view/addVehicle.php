@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+<?php
+
+    //Build a drop down list using the $classifications array
+    $classificationList = '<label for="vehicleList">';
+    $classificationList .= '<select id="vehicleList" name="classificationID" autofocus required>';
+    $classificationList .= '<option value="" selected>Choose a car classification</option>';
+    foreach($classifications as $classification) {
+        $classificationList .= "<option value='$classification[classificationID]'";
+        if(isset($classificationID)){
+            if($classification['classificationID'] == $classificationID) {
+                $classificationList .= ' selected ';
+            }
+        }
+        $classificationList .= ">$classification[classificationName]</option>";
+    }
+    $classificationList .= '</select></label>';
+
+
+
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -32,14 +51,35 @@
             <form class="forms vehicleManForm" action="/cse340/phpmotors/vehicles/?action=add-vehicle" method="post">
             
             <?php echo $classificationList;?>
-            <label for="make" class="top">Make<input type="text" id="make" name="invMake" class="input" required></label>
-            <label for="model" class="top">Model<input type="text" id="model" name="invModel" class="input" required></label>
-            <label for="description" class="top">Description<textarea id="description" name="invDescription" class="input" required></textarea></label>
-            <label for="image" class="top">Image Path<input type="text" id="image" name="invImage" class="input" required></label>
-            <label for="thumbnail" class="top">Thumbnail Path<input type="text" id="thumbnail" name="invThumbnail" class="input" required></label>
-            <label for="price" class="top">Price<input type="number" id="price" name="invPrice" min="1" max="1000000000" class="input" required></label>
-            <label for="inStock" class="top"># in Stock<input type="number" id="inStock" name="invStock" min="1" max="1000" class="input" required></label>
-            <label for="color" class="top">Color<input type="text" id="color" name="invColor" class="input" required></label>
+            <label for="make" class="top">Make
+                <input type="text" id="make" name="invMake" class="input" required maxlength="30"
+                <?php if(isset($invMake)){echo "value='$invMake'";}?>>
+            </label>
+            <label for="model" class="top">Model
+                <input type="text" id="model" name="invModel" class="input" required maxlength="30"
+                <?php if(isset($invModel)){echo "value='$invModel'";} ?>>
+            </label>
+            <label for="description" class="top">Description<textarea id="description" name="invDescription" class="input" required><?php if(isset($invDescription)){echo $invDescription;}?></textarea></label>
+            <label for="image" class="top">Image Path
+                <input type="text" id="image" name="invImage" class="input" required maxlength="50"
+                <?php if(isset($invImage)){echo "value='$invImage'";} ?>>
+            </label>
+            <label for="thumbnail" class="top">Thumbnail Path
+                <input type="text" id="thumbnail" name="invThumbnail" class="input" required maxlength="50"
+                <?php if(isset($invThumbnail)){echo "value='$invThumbnail'";} ?>>
+            </label>
+            <label for="price" class="top">Price
+                <input type="number" step="0.01" id="price" name="invPrice" min="1" class="input" required max="1000000000"
+                <?php if(isset($invPrice)){echo "value='$invPrice'";} ?>>
+            </label>
+            <label for="inStock" class="top"># in Stock
+                <input type="number" id="inStock" name="invStock" min="1" max="100000" class="input" required 
+                <?php if(isset($invStock)){echo "value='$invStock'";} ?>>
+            </label>
+            <label for="color" class="top">Color
+                <input type="text" id="color" name="invColor" class="input" required maxlength="20"
+                <?php if(isset($invColor)){echo "value='$invColor'";} ?>>
+            </label>
             <input type="submit" name='submit' class="vehicleSubmitButton submitButton" value='Submit'>
             <input type="hidden" name='action' value='addVehicleSubmit'> 
             

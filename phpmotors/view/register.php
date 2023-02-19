@@ -32,20 +32,20 @@
 
                 <form class='forms' action="/cse340/phpmotors/accounts/index.php" method="post">
                     <div>
-                        <label for='fName'>
+                        <label for='clientFirstname'>
                             <input type="text" id='fname' class="input nameInput" placeholder="First Name" autofocus
                                 name="clientFirstname" required <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";} ?>>
                         </label>
-                        <label for='lName'>
+                        <label for='clientLastname'>
                             <input id='lname' class="input nameInput" type="text" placeholder="Last Name"
                                 name="clientLastname" required <?php if(isset($clientLastname)){echo "value='$clientLastname'";} ?>>
                         </label>
                     </div>
-                    <label class='formLabels' for='email'>
+                    <label class='formLabels' for='clientEmail'>
                         <input type="email" id='email' class="emailInput input"placeholder="Email e.g. johndoe@mail.com" 
                         name="clientEmail" required <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>>
                     </label>
-                    <label class='formLabels' for='password'>
+                    <label class='formLabels' for='clientPassword'>
                     <span>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
                         <input type="password" id='password' class="passwordInput input" placeholder="Password"
                             name="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">

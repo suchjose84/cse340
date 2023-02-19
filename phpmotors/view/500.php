@@ -17,7 +17,7 @@
     <div class="wrapper">
         <!--header, nav, and footer templates-->
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
-        <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/nav.php'?>
+        <nav><?php echo $navList; ?></nav>
 
         <main class="mainPage" id="main500">
             <div id="error">
