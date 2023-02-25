@@ -59,7 +59,8 @@
                 <input type="text" id="model" name="invModel" class="input" required maxlength="30"
                 <?php if(isset($invModel)){echo "value='$invModel'";} ?>>
             </label>
-            <label for="description" class="top">Description<textarea id="description" name="invDescription" class="input" required><?php if(isset($invDescription)){echo $invDescription;}?></textarea></label>
+            <label for="description" class="top">Description<textarea id="description" name="invDescription" 
+            class="input" required><?php if(isset($invDescription)){echo $invDescription;}?></textarea></label>
             <label for="image" class="top">Image Path
                 <input type="text" id="image" name="invImage" class="input" required maxlength="50"
                 <?php if(isset($invImage)){echo "value='$invImage'";} ?>>

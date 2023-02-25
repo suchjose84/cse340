@@ -8,13 +8,16 @@
     */
 
     // Get the database connection file
-        require_once '../library/connections.php';
-        // Get the PHP Motors model for use as needed
-        require_once '../model/main-model.php';
-        // Get the vehicles model
-        require_once '../model/vehicles-model.php';
-        // Access the functions file
-        require_once '../library/functions.php';
+    require_once '../library/connections.php';
+    // Get the PHP Motors model for use as needed
+    require_once '../model/main-model.php';
+    // Get the vehicles model
+    require_once '../model/vehicles-model.php';
+    // Access the functions file
+    require_once '../library/functions.php';
+
+    // Create or access a session
+    session_start();
 
     // Get the array of classifications
     $classifications = getClassifications();
@@ -24,9 +27,9 @@
 
     //Name value pair in this part using filter input and switch
     $action = trim(filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        if ($action == NULL) {
-            $action = filter_input(INPUT_GET, 'action');
-        }        
+    if ($action == NULL) {
+        $action = filter_input(INPUT_GET, 'action');
+    }
             
     switch ($action) {
         case 'add-vehicle';

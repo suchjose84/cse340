@@ -23,12 +23,12 @@
                 <h1 id="loginH1">Welcome Back</h1>
 
                 <?php
-                    if (isset($message)) {
-                    echo $message;
+                    if (isset($_SESSION['message'])) {
+                    echo $_SESSION['message'];
                     }
                 ?>
                 
-                <form class='forms' action="/cse340/phpmotors/accounts/index.php" method="post">
+                <form class='forms' action="/cse340/phpmotors/accounts/" method="post">
                     <label class='formLabels'>
                         <input type="email" name="clientEmail" id='loginEmailInput' class='input emailInput'
                         placeholder="Email e.g. johndoe@mail.com" autofocus required <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>>

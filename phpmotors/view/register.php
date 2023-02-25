@@ -30,7 +30,7 @@
                 ?>
 
 
-                <form class='forms' action="/cse340/phpmotors/accounts/index.php" method="post">
+                <form class='forms' action="/cse340/phpmotors/accounts/" method="post">
                     <div>
                         <label for='clientFirstname'>
                             <input type="text" id='fname' class="input nameInput" placeholder="First Name" autofocus
