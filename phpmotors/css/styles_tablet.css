@@ -10,6 +10,10 @@
         border-radius: 10px;
         height: auto;
     }
+
+    #myAccountText {
+        font-size: 1.2rem;
+    }
     
     nav a {
         font-size: 1.2rem;

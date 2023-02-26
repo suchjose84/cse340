@@ -4,7 +4,8 @@
         <?php 
         
             if(isset($_SESSION['loggedin'])){
-                $headerTopRight = 'Hello '. $_SESSION['clientData']['clientFirstname'] . " | ";
+                $headerTopRight = '<a href="/cse340/phpmotors/accounts/">';
+                $headerTopRight .= 'Hello '. $_SESSION['clientData']['clientFirstname'] . '</a> | ';
                 $headerTopRight .= '<a href="/cse340/phpmotors/accounts/?action=logout">Log Out</a>';
                 
                 echo $headerTopRight;

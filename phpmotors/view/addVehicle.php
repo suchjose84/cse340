@@ -1,5 +1,9 @@
 <?php
 
+    if(!$_SESSION['loggedin'] || $_SESSION['clientData']['clientLevel'] <= 1){
+        header('Location: /cse340/phpmotors/');
+    }
+
     //Build a drop down list using the $classifications array
     $classificationList = '<label for="vehicleList">';
     $classificationList .= '<select id="vehicleList" name="classificationID" autofocus required>';
@@ -14,8 +18,6 @@
         $classificationList .= ">$classification[classificationName]</option>";
     }
     $classificationList .= '</select></label>';
-
-
 
 ?><!DOCTYPE html>
 <html lang="en">

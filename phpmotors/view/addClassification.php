@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+    if(!$_SESSION['loggedin'] || $_SESSION['clientData']['clientLevel'] <= 1){
+        header('Location: /cse340/phpmotors/');
+    }
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,8 +14,6 @@
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles.css" media="screen">
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles_tablet.css" media="screen">
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles_large.css" media="screen">
-
-
 
 </head>
 
