@@ -41,6 +41,9 @@ $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS)
         case 'signup';
             include '../view/register.php';
         break;
+        case 'client-update';
+            include '../view/client-update.php';
+        break;
         case 'signin';
 
             $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));

@@ -1,5 +1,5 @@
 <?php
-    if(!$_SESSION['loggedin'] || $_SESSION['clientData']['clientLevel'] <= 1){
+    if($_SESSION['clientData']['clientLevel'] < 2){
         header('Location: /cse340/phpmotors/');
     }
 ?><!DOCTYPE html>

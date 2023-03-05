@@ -1,7 +1,11 @@
 <?php
-    if(!$_SESSION['loggedin'] || $_SESSION['clientData']['clientLevel'] <= 1){
+    if($_SESSION['clientData']['clientLevel'] < 2){
         header('Location: /cse340/phpmotors/');
     }
+    if(isset($_SESSION['message'])){
+        $message = $_SESSION['message'];
+    }
+
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +37,25 @@
                     <li><a href="/cse340/phpmotors/vehicles/?action=add-vehicle">Add Vehicle</a></li>
 
                 </ul>
+
+                <?php
+                    if (isset($message)) { 
+                        echo $message; 
+                    } 
+                    if (isset($classificationList)) { 
+                        echo '<h2>Vehicles By Classification</h2>'; 
+                        echo '<p>Choose a classification to see those vehicles</p>'; 
+                        echo $classificationList; 
+                    }
+                ?>
+
+                <noscript>
+                <p><strong>JavaScript Must Be Enabled to Use this Page.</strong></p>
+                </noscript>
+
+                <table id="inventoryDisplay"></table>
+
+
             </section>
         </main>
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/footer.php'?>
@@ -48,6 +71,8 @@
         });
     </script>
 
+    <script src="../js/inventory.js"></script>
+
 </body>
 
-</html>
+</html><?php unset($_SESSION['message']); ?>

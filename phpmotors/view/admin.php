@@ -27,14 +27,23 @@
         <main class="mainPage">
             
             <h1><?php echo $_SESSION['clientData']['clientFirstname']." ".$_SESSION['clientData']['clientLastname'];?></h1>
+            <?php 
+                if(isset($message)){
+                    echo $message;
+                }
+            ?>
+            <p>You are logged in</p>
 
             <ul>
                 <li>Client ID: <?php echo $_SESSION['clientData']['clientId']?></li>
                 <li>Client First Name: <?php echo $_SESSION['clientData']['clientFirstname']?></li>
                 <li>Client Last Name: <?php echo $_SESSION['clientData']['clientLastname']?></li>
                 <li>Client Email: <?php echo $_SESSION['clientData']['clientEmail']?></li>
-                <li>Client Level: <?php echo $_SESSION['clientData']['clientLevel']?></li>
             </ul>
+
+            <h3>Account Management</h3>
+            <p>Use this link to update account information</p>
+            <a href="/cse340/phpmotors/accounts/?action=client-update">Update Account Information</a>
 
             <?php 
                 if($_SESSION['clientData']['clientLevel'] > 1) {

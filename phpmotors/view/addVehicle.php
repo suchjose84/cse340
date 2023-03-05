@@ -1,17 +1,17 @@
 <?php
 
-    if(!$_SESSION['loggedin'] || $_SESSION['clientData']['clientLevel'] <= 1){
+    if($_SESSION['clientData']['clientLevel'] < 2){
         header('Location: /cse340/phpmotors/');
     }
 
     //Build a drop down list using the $classifications array
     $classificationList = '<label for="vehicleList">';
-    $classificationList .= '<select id="vehicleList" name="classificationID" autofocus required>';
-    $classificationList .= '<option value="" selected>Choose a car classification</option>';
+    $classificationList .= '<select id="vehicleList" name="classificationId" autofocus required>';
+    $classificationList .= '<option>Choose a car classification</option>';
     foreach($classifications as $classification) {
-        $classificationList .= "<option value='$classification[classificationID]'";
-        if(isset($classificationID)){
-            if($classification['classificationID'] == $classificationID) {
+        $classificationList .= "<option value='$classification[classificationId]'";
+        if(isset($classificationId)){
+            if($classification['classificationId'] == $classificationId) {
                 $classificationList .= ' selected ';
             }
         }
@@ -62,7 +62,7 @@
                 <?php if(isset($invModel)){echo "value='$invModel'";} ?>>
             </label>
             <label for="description" class="top">Description<textarea id="description" name="invDescription" 
-            class="input" required><?php if(isset($invDescription)){echo $invDescription;}?></textarea></label>
+            class="input vehicleDescription" required><?php if(isset($invDescription)){echo $invDescription;}?></textarea></label>
             <label for="image" class="top">Image Path
                 <input type="text" id="image" name="invImage" class="input" required maxlength="50"
                 <?php if(isset($invImage)){echo "value='$invImage'";} ?>>

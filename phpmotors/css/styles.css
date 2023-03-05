@@ -417,17 +417,8 @@ textarea:focus {
     font-weight: bold;
 }
 
-/*********INVALID FORM INPUT***********/
-
-/* input:required:invalid, input:focus:invalid {
-    background-image: url(/images/invalid.png);
-    background-position: right top;
-    background-repeat: no-repeat;
+.vehicleDescription {
+    min-height: 150px;
 }
-    input:required:valid {
-    background-image: url(/images/valid.png);
-    background-position: right top;
-    background-repeat: no-repeat;
-} */
 
 
