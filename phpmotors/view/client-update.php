@@ -28,49 +28,57 @@
         <main class="mainPage">
         <section class='boxShadow'>
                 <h1>Manage Acount</h1>
-                <?php
-                    if (isset($message)) {
-                    echo $message;
-                    }
-                ?>
-
-                <h3>Update Account</h3>
-                <fieldset>
-                <form class='forms' action="" method="post">
+                <?php if (isset($message)) {echo $message;}?>
+                
+                <h3>Update Information</h3>
+                <fieldset class='fieldsets'>
                     <div>
-                        <label for='clientFirstname'>
-                            <input type="text" id='fname' class="input nameInput" placeholder="First Name" autofocus
-                                name="clientFirstname" required <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";} ?>>
-                        </label>
-                        <label for='clientLastname'>
-                            <input id='lname' class="input nameInput" type="text" placeholder="Last Name"
-                                name="clientLastname" required <?php if(isset($clientLastname)){echo "value='$clientLastname'";} ?>>
-                        </label>
-                    </div>
-                    <label class='formLabels' for='clientEmail'>
-                        <input type="email" id='email' class="emailInput input"placeholder="Email e.g. johndoe@mail.com" 
-                        name="clientEmail" required <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>>
-                    </label>
-                    <input type="submit" name='submit' id="regButton" class='submitButton' value='Update Info'>
-                    <input type="hidden" name="action" value="">
+                        <form class='forms' id='updAcctForm' action="/cse340/phpmotors/accounts/?action=client-update" method="post">
+                            
+                            <label for='clientFirstname'>
+                                <input type="text" id='clientFirstname' class="input nameInput acctUpdateInput" name="clientFirstname" required
+                                <?php if(isset($_SESSION['clientData']['clientFirstname'])){
+                                        echo "value='{$_SESSION['clientData']['clientFirstname']}'";
+                                    } elseif(isset($clientFirstname)){echo "value='$clientFirstname'";}
+                                ?>>
+                            </label>
+                            <label for='clientLastname'>
+                                <input id='clientLastname' class="input nameInput acctUpdateInput" type="text" placeholder="Last Name"
+                                    name="clientLastname" required <?php if(isset($_SESSION['clientData']['clientLastname'])){
+                                        echo "value='{$_SESSION['clientData']['clientLastname']}'";
+                                    } elseif(isset($clientLastname)){echo "value='$clientLastname'";}
+                                ?>>
+                            </label>
+                            
+                            <label for='clientEmail'>
+                                <input type="email" id='clientEmail' class="emailInput input acctUpdateInput" placeholder="Email e.g. johndoe@mail.com" 
+                                name="clientEmail" required <?php if(isset($_SESSION['clientData']['clientEmail'])){
+                                        echo "value='{$_SESSION['clientData']['clientEmail']}'";
+                                    } elseif(isset($clientEmail)){echo "value='$clientEmail'";}
+                                ?>>
+                            </label>
+                            <input type="submit" name='submit' class='submitButton updateAcctBtn' value='Update Info'>
+                            <input type="hidden" name="action" value="accountUpdate">
 
-                </form>
+                        </form>
+                    </div>
                 </fieldset>
 
                 <h3>Change Password</h3>
-                <span class="pwNote">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
-                <span class="pwNote">*Note. Your original password will be changed.</span>
+                <fieldset class='fieldsets'>
+                    <div>
+                        <span class="pwNote">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
+                        <span class="pwNote">*Note. Your original password will be changed.</span>
+                        <form class='forms' action="/cse340/phpmotors/accounts/?action=account-update" method="post">
+                            <label class='formLabels' for='clientPassword'>
+                                <input type="password" id='clientPassword' class="passwordInput input" placeholder="Password"
+                                name="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                            </label>
+                            <input type="submit" name='submit' class='submitButton updateAcctBtn' value='Update Password'>
+                            <input type="hidden" name="action" value="pwordChange">
 
-                <fieldset>
-                    <form>
-                        <label class='formLabels' for='clientPassword'>
-                            <input type="password" id='password' class="passwordInput input" placeholder="Password"
-                            name="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
-                        </label>
-                        <input type="submit" name='submit' id="regButton" class='submitButton' value='Update Password'>
-                        <input type="hidden" name="action" value="register">
-
-                    </form>
+                        </form>
+                    </div>
                 </fieldset>
             </section>
 

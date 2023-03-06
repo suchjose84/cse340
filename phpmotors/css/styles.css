@@ -12,9 +12,12 @@ h1,h2,p {
     padding: 0;
     margin: 0;
 }
-
 a {
-    text-decoration: none;
+    text-decoration: underline;
+    color: blue;
+}
+a:hover {
+    color:#4c96d7;
 }
 
 ul {
@@ -41,6 +44,9 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: #ffffff;
+}
+header a{
+    text-decoration: none;
 }
 header img {
     height: 98%;
@@ -78,6 +84,7 @@ nav li:hover {
 nav a {
     font-size: 1.1rem;
     color: #ffffff;
+    text-decoration: none;
 }
 
 main {
@@ -388,7 +395,6 @@ textarea:focus {
 .vehicleManUL li{
     list-style-type: disc;
     font-size: 1.1rem;
-    color: blue;
     
 }
 .vehicleManUL a{
@@ -420,5 +426,26 @@ textarea:focus {
 .vehicleDescription {
     min-height: 150px;
 }
+
+/*=========Update Vehicle=============*/
+.delStrong {
+    margin-top: 1rem;
+}
+
+
+/*=========Update Account Page=============*/
+.fieldsets {
+    padding: 10px;
+    border-radius: 10px;
+    border: 3px solid rgba(0, 0, 0, 0.19);
+}
+.acctUpdateInput {
+    margin-top: 15px;
+
+}
+.updateAcctBtn {
+    margin-top: 20px;
+}
+
 
 

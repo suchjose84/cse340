@@ -7,7 +7,7 @@
     //Build a drop down list using the $classifications array
     $classificationList = '<label for="vehicleList">';
     $classificationList .= '<select id="vehicleList" name="classificationID" autofocus required>';
-    $classificationList .= '<option>Choose a car classification</option>';
+    $classificationList .= '<option value="">Choose a car classification</option>';
     foreach($classifications as $classification) {
         $classificationList .= "<option value='$classification[classificationId]'";
         if(isset($classificationId)){
@@ -56,7 +56,7 @@
                 echo "Modify $invMake $invModel"; }
             ?></h1>
 
-            <?php if (isset($message)) {echo $message;}?>
+            <?php if (isset($_SESSION['message'])) {echo $_SESSION['message'];}?>
         
             <!-- Create the main page -->
             <form class="forms vehicleManForm" action="/cse340/phpmotors/vehicles/?action=add-vehicle" method="post">
@@ -121,8 +121,7 @@
                 <input type="submit" name='submit' class="vehicleSubmitButton submitButton" value='Update Vehicle'>
                 <input type="hidden" name='action' value='updateVehicle'>
                 <input type="hidden" name="invId" value="<?php if(isset($invInfo['invId'])){ echo $invInfo['invId'];
-                    } elseif(isset($invId)){ echo $invId; } ?>"
-                >
+                } elseif(isset($invId)){ echo $invId; } ?>">
             
 
             </form>

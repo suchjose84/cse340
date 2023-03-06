@@ -30,16 +30,15 @@
         
         <section class="boxShadow">
 
-        <h1><?php 
-            if(isset($invInfo['invMake'])){ echo "Delete $invInfo[invMake] $invInfo[invModel]";} ?>
-        </h1>
-        <p>Confirm Vehicle Deletion. The delete is permanent.</p>
-
+            <h1><?php 
+                if(isset($invInfo['invMake'])){ echo "Delete $invInfo[invMake] $invInfo[invModel]";} ?>
+            </h1>
+            <strong class="strong delStrong">Confirm Vehicle Deletion. The delete is permanent.</strong>
             <?php if (isset($message)) {echo $message;}?>
-        
+            
             <!-- Create the main page -->
             <form method="post" action="/cse340/phpmotors/vehicles/">
-                <fieldset>
+                <fieldset class="fieldsets">
                     <label for="invMake" class="top">Vehicle Make</label>
                     <input type="text" class="input" readonly name="invMake" id="invMake" <?php
                     if(isset($invInfo['invMake'])) {echo "value='$invInfo[invMake]'"; }?>>

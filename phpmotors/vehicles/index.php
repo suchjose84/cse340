@@ -127,7 +127,7 @@
             $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
             $invInfo = getInvItemInfo($invId);
             if(count($invInfo)<1){
-                $message = 'Sorry, no vehicle information could be found.';
+                $message = '<p class="errorMessage">Sorry, no vehicle information could be found.</p>';
             }
             include '../view/vehicle-update.php';
             exit;
@@ -156,18 +156,19 @@
             //Send the data to the model
             $updateResult = updateVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 
             $invStock, $invColor, $classificationID, $invId);
-            $message = '<p class="successMessage">Congratulations, the $invMake $invModel was successfully updated.</p>';
+            $message = '<p class="successMessage">Congratulations,   the $invMake $invModel was successfully updated.</p>';
             
 
             //Check and report the result
             if ($updateResult) {
-                $message = "<p class='notify'>Congratulations, the $invMake $invModel was successfully updated.</p>";
+                $message = "<p class='successMessage'>Congratulations, the $invMake $invModel was successfully updated.</p>";
                 $_SESSION['message'] = $message;
                 header('location: /cse340/phpmotors/vehicles/');
                 exit;
             } else {
-                $message = '<p class="errorMessage"> There was an error updating the classification to the database. Please try again. </p>';
-                include '../veiw/vehicle-update.php';
+                $message = '<p class="errorMessage"> There was an error updating the vehicle to the database. Please try again. </p>';
+                $_SESSION['message'] = $message;
+                header("location: /cse340/phpmotors/vehicles/?action=mod&invId=$invId");
                 exit;
             }
 
@@ -177,7 +178,7 @@
             $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
             $invInfo = getInvItemInfo($invId);
             if (count($invInfo) < 1) {
-		        $message = 'Sorry, no vehicle information could be found.';
+		        $message = '<p class="errorMessage">Sorry, no vehicle information could be found.</p>';
 	        }
 	        include '../view/vehicle-delete.php';
 	        exit;
@@ -194,12 +195,12 @@
 
             //Check and report the result
             if ($deleteResult) {
-                $message = "<p class='notice'>Congratulations the, $invMake $invModel was	successfully deleted.</p>";
+                $message = "<p class='successMessage'>Congratulations the, $invMake $invModel was	successfully deleted.</p>";
                 $_SESSION['message'] = $message;
                 header('location: /cse340/phpmotors/vehicles/');
                 exit;
             } else {
-                $message = "<p class='notice'>Error: $invMake $invModel was not deleted.</p>";
+                $message = "<p class='errorMessage'>Error: $invMake $invModel was not deleted.</p>";
                 $_SESSION['message'] = $message;
                 header('location: /cse340/phpmotors/vehicles/');
                 exit;
