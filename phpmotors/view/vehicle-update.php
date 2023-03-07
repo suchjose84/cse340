@@ -84,14 +84,14 @@
                     ?></textarea>
                 </label>
                 <label for="image" class="top">Image Path
-                    <input type="text" id="image" name="invImage" class="input" required maxlength="50"
+                    <input type="text" id="image" name="invImage" class="input" required maxlength="200"
                     <?php if(isset($invImage)){echo "value='$invImage'";
                         }elseif(isset($invInfo['invImage'])) {
                         echo "value='$invInfo[invImage]'";} 
                     ?>>
                 </label>
                 <label for="thumbnail" class="top">Thumbnail Path
-                    <input type="text" id="thumbnail" name="invThumbnail" class="input" required maxlength="50"
+                    <input type="text" id="thumbnail" name="invThumbnail" class="input" required maxlength="200"
                     <?php if(isset($invThumbnail)){echo "value='$invThumbnail'";
                         }elseif(isset($invInfo['invThumbnail'])) {
                         echo "value='$invInfo[invThumbnail]'";} 

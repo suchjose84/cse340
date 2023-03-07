@@ -26,7 +26,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Motors Header, Nav, Footer Template</title>
+    <title>Add Vehicle | PHPMotors</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles.css" media="screen">
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles_tablet.css" media="screen">
@@ -64,11 +64,11 @@
             <label for="description" class="top">Description<textarea id="description" name="invDescription" 
             class="input vehicleDescription" required><?php if(isset($invDescription)){echo $invDescription;}?></textarea></label>
             <label for="image" class="top">Image Path
-                <input type="text" id="image" name="invImage" class="input" required maxlength="50"
+                <input type="text" id="image" name="invImage" class="input" required maxlength="200"
                 <?php if(isset($invImage)){echo "value='$invImage'";} ?>>
             </label>
             <label for="thumbnail" class="top">Thumbnail Path
-                <input type="text" id="thumbnail" name="invThumbnail" class="input" required maxlength="50"
+                <input type="text" id="thumbnail" name="invThumbnail" class="input" required maxlength="200"
                 <?php if(isset($invThumbnail)){echo "value='$invThumbnail'";} ?>>
             </label>
             <label for="price" class="top">Price

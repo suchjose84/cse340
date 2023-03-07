@@ -27,7 +27,7 @@
                 </p>
                 <button id="ownToday1" type="Button">Own Today</button>
             </div>
-            <img id="bigCarPic" src="images/delorean.jpg" alt="bigCarPIc">
+            <img id="bigCarPic" src="/cse340/phpmotors/images/vehicles/delorean.jpg" alt="bigCarPIc">
             <button id="ownToday2" type="Button">Own Today</button>
             </section>
             <section class="reviewsSection">

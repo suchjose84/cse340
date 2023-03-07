@@ -10,7 +10,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Management | PHP Motors</title>
+    <title><?php if(isset($_SESSION['clientData']['clientFirstname']) && isset($_SESSION['clientData']['clientLastname'])){ 
+		echo "Modify {$_SESSION['clientData']['clientFirstname']} {$_SESSION['clientData']['clientLastname']}";} 
+	    elseif(isset($clientFirstname) && isset($clientLastname)) { 
+		echo "Modify $clientFirstname $clientLastname"; }?> | PHP Motors</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles.css" media="screen">
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles_tablet.css" media="screen">
