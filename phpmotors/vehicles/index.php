@@ -209,17 +209,36 @@
         break;
         case 'classification':
             $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            
             $vehicles = getVehiclesByClassification($classificationName);
             if(!count($vehicles)){
                 $message = "<p class='errorMessage'>Sorry, no $classificationName vehicles could be found.</p>";
+                include '../view/vehicles.php';
             } else {
                 $vehicleDisplay = buildVehiclesDisplay($vehicles);
             }
             include '../view/classification.php';
 
         break;
+        case 'inventory':
+            //INPUT GET the invID
+            $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
+            $vehicle = getInvItemInfo($invId);
+            
+            //show error if no result
+            if(!count($vehicle)){
+                $message = "<p class='errorMessage'>Sorry, no information about $vehicle[invMake] $vehicle[invModel] could be found.</p>";
+                include '../view/classification.php';
+            } else {
+                $vehicleInfoDisplay = buildVehicleInfoDisplay($vehicle);
+            }
+            include '../view/vehicle-info.php';
+            
+        break;
+
         default:
         $classificationList = buildClassificationList($classifications);
+        
 
             include '../view/vehicle-man.php';
         break;

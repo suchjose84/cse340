@@ -21,11 +21,13 @@ h1,h2,p {
     margin: 0;
 }
 a {
-    text-decoration: underline;
-    color: blue;
+    text-decoration: none;
+    color: #2980b9;
 }
+
 a:hover {
-    color:#4c96d7;
+    color:#1c6387;
+    text-decoration: underline;
 }
 
 ul {
@@ -92,6 +94,9 @@ nav li:hover {
 nav a {
     font-size: 1.1rem;
     color: #ffffff;
+    text-decoration: none;
+}
+nav a:hover{
     text-decoration: none;
 }
 
@@ -474,5 +479,92 @@ textarea:focus {
    #inv-display li img {
        max-width: 100%;
    }
+
+/*=========Classification View=============*/
+#ulVehicles {
+    display: flex;
+    flex-direction: column;
+}
+#ulVehicles li{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    width: 90%;
+    margin: 10px auto;
+    border-radius: 5px;
+    height: 350px;
+    text-align: center;
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #CCCCCC;
+
+}
+#ulVehicles img{
+    display: block;
+    border-radius: 5px;
+    width: 100%;
+    max-height: 250px;
+    margin: 0 auto;
+    border: 1px solid white;
+}
+#ulVehicles a{
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2980b9;
+    text-decoration: none;
+}
+#ulVehicles a:hover {
+    color: #1c6387;
+    text-decoration: underline;
+  }
+  
+
+#ulVehicles span {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  
+#ulVehicles hr {
+    width: 100%;
+    border: 0;
+    height: 3px;
+    background-color: #ccc;
+    margin: 10px 0;
+    align-self: center;
+  }
+.cardLower {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*=========Vehicle Info View=============*/
+#vehicleInfoBox {
+    display: flex;
+    flex-direction: column;
+}
+
+#vehicleInfoImg {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1rem;
+    width: 95%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+}
+
+.rightInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+    
+}
+#vehicleDescription {
+    font-size: 1.3rem;
+}
 
 

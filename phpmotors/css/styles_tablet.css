@@ -1,4 +1,4 @@
-@media only screen and (min-width: 35em){
+@media only screen and (min-width: 35em) {
     body {
         background-image: url("../images/site/small_check.jpg");
     }
@@ -14,37 +14,45 @@
     #myAccountText {
         font-size: 1.2rem;
     }
-    
+
     nav a {
         font-size: 1.2rem;
     }
+
     main h1 {
         font-size: 2rem;
     }
+
     main #carSpecCard {
         top: 190px;
         left: 15%;
     }
+
     main #carSpecCard h2 {
         font-size: 1.7rem;
     }
+
     main #carSpecCard p {
         font-size: 1.4rem;
     }
+
     main #bigCarPic {
         width: 80%;
     }
+
     .reviewsSection {
         margin-top: 40px;
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
     }
+
     .upgrRevDiv {
         margin: 0 auto;
         width: 47%;
     }
-    .upgrRevDiv h2{
+
+    .upgrRevDiv h2 {
         font-size: 1.2rem;
     }
 
@@ -52,14 +60,16 @@
         margin: 0 auto;
         width: 50%;
     }
-    .boxShadow h2{
+
+    .boxShadow h2 {
         font-size: 1.2rem;
     }
-    
+
     #reviewsWrapper ul {
         margin-left: 15px;
-    
+
     }
+
     #reviewsWrapper li {
         font-size: 1rem;
     }
@@ -69,29 +79,21 @@
         margin: 30px auto 0 auto;
     }
 
-}
+    /* For vehicle display in classification view */
+    #ulVehicles {
+        flex-direction: row;
+        gap: 10px;
+    }
+    #ulVehicles li{
+        max-width: 300px;
+    
+    }
 
-/* For vehicle display in classification view */
-#inv-display {
-    flex-flow: row wrap;
-    justify-content: flex-start;
-}
+    /*=========Vehicle Info Page=============*/
 
-#inv-display h2{
-    font-size: 1rem;
-}
+    #vehicleInfoBox {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 
-#inv-display li {
-    max-width: 200px;
-    flex: 1 0 auto;
-    text-align: center;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
-  
-#inv-display div {
-    width: 100%;
-}
-

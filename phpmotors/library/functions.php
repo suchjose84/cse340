@@ -77,18 +77,38 @@
     }
     // Build the unordered list of vehicles
     function buildVehiclesDisplay($vehicles){
-        $dv = '<ul id="inv-display">';
+        $dv = '<ul id="ulVehicles">';
         foreach ($vehicles as $vehicle) {
-         $dv .= '<li>';
-         $dv .= "<img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
-         $dv .= '<hr>';
-         $dv .= "<h2>$vehicle[invMake] $vehicle[invModel]</h2>";
-         $dv .= "<span>$vehicle[invPrice]</span>";
+         $dv .= '<li class="vehicleListItem">';
+         $dv .= "<a href='/cse340/phpmotors/vehicles/?action=inventory&invId={$vehicle['invId']}' class='vehicleList'>";         
+         $dv .= "<img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'></a>";
+         $dv .= '<div class="cardLower"><hr>';
+         $dv .= "<a href='/cse340/phpmotors/vehicles/?action=inventory&invId={$vehicle['invId']}'>$vehicle[invMake] $vehicle[invModel]</a>";
+         $dv .= '<span class="vehiclesListSpan">$'.number_format($vehicle['invPrice'])."</span></div>";
          $dv .= '</li>';
         }
         $dv .= '</ul>';
         return $dv;
-       }
+    }
+
+    function buildVehicleInfoDisplay($vehicle){
+        
+        $dv = '<div id="vehicleInfoBox">';
+            $dv .= '<div class=leftInfo>';
+                $dv .= "<h1>$vehicle[invMake] $vehicle[invModel]</h1>";
+                $dv .= "<img id='vehicleInfoImg' src='$vehicle[invImage]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+                $dv .= '<h3>Price: $'.number_format($vehicle['invPrice']).'</h3>';
+            $dv .= "</div>";
+            $dv .= "<div class=rightInfo>";
+                $dv .= "<h3>$vehicle[invMake] $vehicle[invModel] Details</h3>";
+                $dv .= "<p id='vehicleDescription'>$vehicle[invDescription]</p>";
+                $dv .= "<h3>Color: ".ucfirst($vehicle['invColor'])."</h3>";
+                $dv .= "<h3>In Stock: ".number_format($vehicle['invStock'])."</h3>";
+            $dv .= "</div>";
+        $dv .= '</div>';
+
+        return $dv;
+    }
 
 
 ?>
