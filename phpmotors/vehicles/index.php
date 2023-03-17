@@ -116,7 +116,7 @@
         * ********************************** */ 
         case 'getInventoryItems': 
             // Get the classificationId 
-            $classificationId = filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT);
+            $classificationId = trim(filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT));
             // Fetch the vehicles by classificationId from the DB 
             $inventoryArray = getInventoryByClassification($classificationId); 
             // Convert the array to a JSON object and send it back 
@@ -124,7 +124,7 @@
         break;
 
         case 'mod':
-            $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+            $invId = trim(filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT));
             $invInfo = getInvItemInfo($invId);
             if(count($invInfo)<1){
                 $message = '<p class="errorMessage">Sorry, no vehicle information could be found.</p>';
@@ -144,7 +144,7 @@
             $invPrice = trim(filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
             $invStock = trim(filter_input(INPUT_POST, 'invStock', FILTER_SANITIZE_NUMBER_INT));
             $invColor = trim(filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-            $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+            $invId = trim(filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT));
 
             //Check for missing data
             if(empty($invMake) || empty($invModel) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || empty($invPrice)
@@ -188,7 +188,7 @@
             //Filter and store the data
             $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             $invModel = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-            $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+            $invId = trim(filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT));
 
             //Send the data to the model
             $deleteResult = deleteVehicle($invId);
@@ -208,7 +208,7 @@
 		
         break;
         case 'classification':
-            $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $classificationName = trim(filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             
             $vehicles = getVehiclesByClassification($classificationName);
             if(!count($vehicles)){
@@ -222,7 +222,7 @@
         break;
         case 'inventory':
             //INPUT GET the invID
-            $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
+            $invId = trim(filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT));
             $vehicle = getInvItemInfo($invId);
             
             //show error if no result

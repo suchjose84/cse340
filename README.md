@@ -1,4 +1,4 @@
-# CSE 340 – Winter 2021
+# CSE 340 – Winter 2022
   - Name: Jose Such
   - email: suchjose@live.com
 

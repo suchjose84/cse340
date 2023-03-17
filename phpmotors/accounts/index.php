@@ -28,7 +28,7 @@ $classifications = getClassifications();
 $navList = createNav($classifications);
 
 // Get the value from the action name - value pair
-$action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$action = trim(filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     if ($action == NULL) {
         $action = filter_input(INPUT_GET, 'action');
     }        

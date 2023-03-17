@@ -4,6 +4,8 @@
         <li>All images used are believed to be in "Fair Use". Please notify the author if any are not
             and they will be removed.
         </li>
-        <li>Last Updated: 30 March, 2018</li>
+        <li>Last Updated:<span id='dateAndTime'></span></li>
     </ul>
 </footer>
+
+<script src='/cse340/phpmotors/js/scripts.js'></script>
