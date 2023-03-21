@@ -35,8 +35,8 @@ switch ($action) {
         $invId = trim(filter_input(INPUT_POST, 'invId', FILTER_VALIDATE_INT));
         $imgPrimary = trim(filter_input(INPUT_POST, 'imgPrimary', FILTER_VALIDATE_INT));
         
-        // Store the name of the uploaded image
-        $imgName = $_FILES['file1']['name'];
+            // Store the name of the uploaded image
+            $imgName = $_FILES['file1']['name'];
             
         $imageCheck = checkExistingImage($imgName);
             

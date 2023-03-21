@@ -32,7 +32,7 @@
 
     //this function will add classification to carClassification database
     function addVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, 
-    $classificationID) {
+    $classificationId) {
 
 
         
@@ -41,9 +41,9 @@
 
         // // The SQL statement
         $sql = 'INSERT INTO inventory (invMake, invModel, invDescription, invImage, invThumbnail, invPrice, invStock, 
-        invColor, classificationID)
+        invColor, classificationId)
         VALUES (:invMake, :invModel, :invDescription, :invImage, :invThumbnail, :invPrice, :invStock, :invColor, 
-        :classificationID)';
+        :classificationId)';
 
         // Create the prepared statement using the phpmotors connection
         $stmt = $db->prepare($sql);
@@ -58,9 +58,7 @@
         $stmt->bindValue(':invPrice', $invPrice, PDO::PARAM_INT);
         $stmt->bindValue(':invStock', $invStock, PDO::PARAM_INT);
         $stmt->bindValue(':invColor', $invColor, PDO::PARAM_STR);
-        $stmt->bindValue(':classificationID', $classificationID, PDO::PARAM_INT);
-
-
+        $stmt->bindValue(':classificationId', $classificationId, PDO::PARAM_INT);
 
         // Insert the data
         $stmt->execute();
@@ -88,7 +86,14 @@
     // Get vehicle information by invId
     function getInvItemInfo($invId){
     $db = phpmotorsConnect();
-    $sql = 'SELECT * FROM inventory WHERE invId = :invId';
+    $sql = 'SELECT inventory.invId, inventory.invMake, inventory.invModel, inventory.invDescription, inventory.invPrice,
+        inventory.invStock, inventory.invColor, inventory.classificationId, images.imgPrimary, images.imgPath
+        FROM inventory 
+        INNER JOIN images ON inventory.invId = images.invId
+        WHERE inventory.invId = :invId
+        AND images.imgPrimary = 1
+        AND images.imgName NOT LIKE '.'"%-tn%"';
+
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
     $stmt->execute();
@@ -164,7 +169,11 @@
 
     function getVehiclesByClassification($classificationName){
         $db = phpmotorsConnect();
-        $sql = 'SELECT * FROM inventory WHERE classificationId IN (SELECT classificationId FROM carclassification WHERE 
+        $sql = 'SELECT * FROM images 
+            JOIN inventory ON images.invId = inventory.invId
+            WHERE imgPrimary = 1
+            AND imgName LIKE "%-tn%"
+            AND classificationId IN (SELECT classificationId FROM carClassification WHERE 
         classificationName = :classificationName)';
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);

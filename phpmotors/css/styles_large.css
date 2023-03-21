@@ -22,8 +22,8 @@
     }
 
     main #carSpecCard {
-        top: 220px;
-        left: 10%;
+        top: 250px;
+        left: 14%;
     }
 
     main #carSpecCard h2 {
@@ -72,4 +72,32 @@
     .mainSections {
         width: 30%;
     }
+
+    /* Vehicle Classification View */
+    #ulVehicles li{
+        max-width: 20%;
+        height: 300px;
+        transition: transform 0.2s ease-in-out;
+
+    }
+    #ulVehicles li:hover{
+        transform: scale(1.05);
+    }
+
+
+
+    /*********Vehicle Info View*********/
+    #vehicleInfoBox {
+        display: grid;
+        grid-template-columns: 1.4fr .6fr;
+        grid-gap: 10px;
+    }
+    /* Uploads View */
+
+    .uploadMain label,fieldset, .spaceBetween {
+        width: 45%;
+        
+    }
+
+
 }

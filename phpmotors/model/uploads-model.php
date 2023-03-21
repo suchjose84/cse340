@@ -65,6 +65,21 @@
         return $imageMatch;
     }
 
+    // Get thumbnail images from images table by invId
+    function getThumbnailPaths($invId){
+        $db = phpmotorsConnect();
+        $sql = "SELECT imgPath FROM images
+            WHERE imgName LIKE '%-tn%' 
+            AND invId = :invId";
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+        $stmt->execute();
+        $imageMatches = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $imageMatches;
+    }
+    
+
 
 
 

@@ -67,7 +67,7 @@
 
     // Build the classifications drop down list
     function buildClassificationList($classifications){ 
-        $classificationList = '<select name="classificationId" id="classificationList">'; 
+        $classificationList = '<select class="select" name="classificationId" id="classificationList">'; 
         $classificationList .= "<option>Choose a Classification</option>"; 
         foreach ($classifications as $classification) { 
         $classificationList .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>"; 
@@ -91,23 +91,44 @@
         return $dv;
     }
 
-    function buildVehicleInfoDisplay($vehicle){
-        
-        $dv = '<div id="vehicleInfoBox">';
-            $dv .= '<div class=leftInfo>';
-                $dv .= "<h1>$vehicle[invMake] $vehicle[invModel]</h1>";
-                $dv .= "<img id='vehicleInfoImg' src='$vehicle[invImage]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
-                $dv .= '<h3>Price: $'.number_format($vehicle['invPrice']).'</h3>';
-            $dv .= "</div>";
-            $dv .= "<div class=rightInfo>";
-                $dv .= "<h3>$vehicle[invMake] $vehicle[invModel] Details</h3>";
-                $dv .= "<p id='vehicleDescription'>$vehicle[invDescription]</p>";
-                $dv .= "<h3>Color: ".ucfirst($vehicle['invColor'])."</h3>";
-                $dv .= "<h3>In Stock: ".number_format($vehicle['invStock'])."</h3>";
+    function buildVehicleInfoDisplay($vehicle, $thumbnails){
+        $dv = "<h1>$vehicle[invMake] $vehicle[invModel]</h1>";
+        $dv .= "<div id='vehicleDisplayMain'>";
+            $dv .= '<div id="vehicleInfoBox">';
+                $dv .= '<div class=leftInfo>';
+                    $dv .= "<div id='vehicleImageBox'>";
+                        $dv .= buildThumbnails($vehicle, $thumbnails);
+                        $dv .= "<img id='vehicleInfoImg' src='$vehicle[imgPath]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+                    $dv .= "</div>";
+                    $dv .= '<h3>Price: $'.number_format($vehicle['invPrice']).'</h3>';
+                $dv .= "</div>";
+                $dv .= "<div class=rightInfo>";
+                    $dv .= "<h3>$vehicle[invMake] $vehicle[invModel] Details</h3>";
+                    $dv .= "<p id='vehicleDescription'>$vehicle[invDescription]</p>";
+                    $dv .= "<h3>Color: ".ucfirst($vehicle['invColor'])."</h3>";
+                    $dv .= "<h3>In Stock: ".number_format($vehicle['invStock'])."</h3>";
+                $dv .= "</div>";
+                
+            $dv .= '</div>';
+            $dv .= "<div id='thumbnailsOnBottomBox'>";
+                $dv .= "<h3>Vehicle Thumbnails</h3>";
+                $dv .= buildThumbnails($vehicle, $thumbnails);
+
             $dv .= "</div>";
         $dv .= '</div>';
-
         return $dv;
+    }
+    function buildThumbnails($vehicle, $thumbnails){
+        $dv = "<ul class=thumbnailsListBox>";
+            foreach($thumbnails as $thumbnail){
+                $dv .= "<li>";
+                $dv .= "<img src='{$thumbnail['imgPath']}' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+                $dv .= "</li>";
+
+                    }
+        $dv .= "</ul>";
+        return $dv;
+
     }
 
     /* * ********************************
@@ -124,21 +145,38 @@
     }
 
     // Build images display for image management view
+    // function buildImageDisplay2($imageArray) {
+    //     $id = '<ul class="ul uploadUl" id="image-display">';
+    //     foreach ($imageArray as $image) {
+
+    //     $id .= '<li>';
+    //     $id .= "<img src='$image[imgPath]' title='$image[invMake] $image[invModel] image on PHP Motors.com' alt='$image[invMake] $image[invModel] image on PHP Motors.com'>";
+    //     $id .= "<p><a href='/cse340/phpmotors/uploads?action=delete&imgId=$image[imgId]&filename=$image[imgName]' title='Delete the image'>Delete $image[imgName]</a></p>";
+    //     $id .= '</li>';
+    // }
+    //     $id .= '</ul>';
+    //     return $id;
+    // }
+
     function buildImageDisplay($imageArray) {
-        $id = '<ul id="image-display">';
+        $id = '<ul class="ul uploadUl" id="image-display">';
         foreach ($imageArray as $image) {
-        $id .= '<li>';
-        $id .= "<img src='$image[imgPath]' title='$image[invMake] $image[invModel] image on PHP Motors.com' alt='$image[invMake] $image[invModel] image on PHP Motors.com'>";
-        $id .= "<p><a href='/cse340/phpmotors/uploads?action=delete&imgId=$image[imgId]&filename=$image[imgName]' title='Delete the image'>Delete $image[imgName]</a></p>";
-        $id .= '</li>';
-    }
+            $imgName = $image['imgName'];
+            $class = strpos($imgName, '-tn') !== false ? ' class="thumbnails"' : 'class="mainPic"';
+            $id .= '<li>';
+            $id .= "<img src='$image[imgPath]' $class title='$image[invMake] $image[invModel] image on PHP Motors.com' alt='$image[invMake] $image[invModel] image on PHP Motors.com'>";
+            $id .= "<p><a href='/cse340/phpmotors/uploads?action=delete&imgId=$image[imgId]&filename=$imgName' title='Delete the image'>Delete $imgName</a></p>";
+            $id .= '</li>';
+        }
         $id .= '</ul>';
         return $id;
     }
+    
+
 
     // Build the vehicles select list
     function buildVehiclesSelect($vehicles) {
-        $prodList = '<select name="invId" id="invId">';
+        $prodList = '<select class="select" name="invId" id="invItem">';
         $prodList .= "<option>Choose a Vehicle</option>";
         foreach ($vehicles as $vehicle) {
         $prodList .= "<option value='$vehicle[invId]'>$vehicle[invMake] $vehicle[invModel]</option>";

@@ -11,8 +11,8 @@
         height: auto;
     }
 
-    #myAccountText {
-        font-size: 1.2rem;
+    header a{
+        font-size: 1.5rem;
     }
 
     nav a {
@@ -82,18 +82,73 @@
     /* For vehicle display in classification view */
     #ulVehicles {
         flex-direction: row;
-        gap: 10px;
+        gap: 5px;
+        flex-wrap: wrap;
     }
     #ulVehicles li{
-        max-width: 300px;
+        max-width: 45%;
+        height: 350px;
     
     }
 
     /*=========Vehicle Info Page=============*/
-
     #vehicleInfoBox {
+        display: flex;
+        flex-direction: column;
+    }
+    #vehicleImageBox{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: .35fr 1.65fr;
+        grid-gap: 5px;
+        background-color: rgb(255, 140, 0, .4);
+        padding-left: 5px;
+        margin-top: 10px;
+    }
+
+    #vehicleImageBox ul{
+        display: flex;
+        flex-direction: column;
+    }
+    .thumbnailsListBox li {
+        width: 100%;
+    }
+
+    #thumbnailsOnBottomBox{
+        display: none;
+    }
+    .thumbnailsListBox li img{
+        transition: transform 0.2s ease-in-out;
+        border-radius: 5px;
+    }
+    .thumbnailsListBox li img:hover{
+        transform: scale(1.1);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        border: 2px solid rgba(0, 0, 0, .3);
+        
+    }
+
+    /*============Vehicle Uploads Page======*/
+    .uploadMain label,fieldset, .spaceBetween {
+        width: 60%;
+        margin-left: 0;
+        
+    }
+    .uploadUl {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border: 1px solid #CCCCCC;
+        border-radius: 10px;
+    }
+    .uploadUl a{
+        display: block;
+        text-align: center;
+        font-size: 1.1rem;
+        
     }
 
 }

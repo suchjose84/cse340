@@ -5,19 +5,7 @@
     }
 
     //Build a drop down list using the $classifications array
-    $classificationList = '<label for="vehicleList">';
-    $classificationList .= '<select id="vehicleList" name="classificationId" autofocus required>';
-    $classificationList .= '<option value="">Choose a car classification</option>';
-    foreach($classifications as $classification) {
-        $classificationList .= "<option value='$classification[classificationId]'";
-        if(isset($classificationId)){
-            if($classification['classificationId'] == $classificationId) {
-                $classificationList .= ' selected ';
-            }
-        }
-        $classificationList .= ">$classification[classificationName]</option>";
-    }
-    $classificationList .= '</select></label>';
+    $classificationList = buildClassificationList($classifications);
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -50,7 +38,7 @@
             <?php if (isset($message)) {echo $message;}?>
         
             <!-- Create the main page -->
-            <form class="forms vehicleManForm" action="/cse340/phpmotors/vehicles/?action=add-vehicle" method="post">
+            <form class="forms vehicleManForm" action="/cse340/phpmotors/vehicles/  " method="post">
             
             <?php echo $classificationList;?>
             <label for="make" class="top">Make

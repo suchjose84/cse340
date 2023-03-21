@@ -7,5 +7,3 @@
         <li>Last Updated:<span id='dateAndTime'></span></li>
     </ul>
 </footer>
-
-<script src='/cse340/phpmotors/js/scripts.js'></script>

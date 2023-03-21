@@ -16,11 +16,11 @@
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper uploadsWrapper">
         <!--header, nav, and footer templates-->
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
         <nav><?php echo $navList; ?></nav>
-        <main class="mainPage">
+        <main class="mainPage uploadMain">
             <h1>Image Management</h1>
             <p>Welcome to image management page.</p>
 
@@ -28,17 +28,22 @@
             <?php if (isset($message)) {echo $message;} ?>
             
             <form action="/cse340/phpmotors/uploads/" method="post" enctype="multipart/form-data">
-                <label for="invItem">Vehicle</label><?php echo $prodSelect; ?>
-                    <fieldset>
-                        <label>Is this the main image for the vehicle?</label>
+                <label class="top" for="invItem">Vehicle<?php echo $prodSelect; ?></label>
+                <fieldset>
+                    <label>Is this the main image for the vehicle?</label>
+                    <div>
                         <label for="priYes" class="pImage">Yes</label>
                         <input type="radio" name="imgPrimary" id="priYes" class="pImage" value="1">
                         <label for="priNo" class="pImage">No</label>
                         <input type="radio" name="imgPrimary" id="priNo" class="pImage" checked value="0">
-                    </fieldset>
-                <label>Upload Image:</label>
-                <input type="file" name="file1">
-                <input type="submit" class="regbtn" value="Upload">
+                    </div>
+                </fieldset>
+                <label class="top">Upload Image</label>
+                <div class='spaceBetween'>
+                    <input type="file" name="file1">
+                    <input type="submit" class="button uploadButton" value="Upload">
+                </div>
+                
                 <input type="hidden" name="action" value="upload">
             </form>
             <hr>
