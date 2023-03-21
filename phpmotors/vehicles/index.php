@@ -13,8 +13,11 @@
     require_once '../model/main-model.php';
     // Get the vehicles model
     require_once '../model/vehicles-model.php';
+    // Access the uploads model file
+    require_once '../model/uploads-model.php';
     // Access the functions file
     require_once '../library/functions.php';
+    
 
     // Create or access a session
     session_start();
@@ -66,7 +69,7 @@
 
         case 'addVehicleSubmit';
             //Filter and store the data
-            $classificationID = trim(filter_input(INPUT_POST, 'classificationID', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $classificationId = filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_NUMBER_INT);
             $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             $invModel = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             $invDescription = trim(filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -84,18 +87,16 @@
             $checkStock = checkStock($invStock);
             $checkColor = checkColor($invColor);
 
-
-
             //Check for missing data
             if(empty($checkMake) || empty($checkModel) || empty($invDescription) || empty($checkImage) || empty($checkThumbnail) || empty($checkPrice)
-            || empty($checkStock) || empty($checkColor) || empty($classificationID)) {
+            || empty($checkStock) || empty($checkColor) || empty($classificationId)) {
                 $message = '<p class="errorMessage"> Please provide information for all empty form fields. </p>';
                 include '../view/addVehicle.php';
                 exit;
             }
             //Send the data to the model
             $addClassOutcome = addVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 
-            $invStock, $invColor, $classificationID);
+            $invStock, $invColor, $classificationId);
             $message = '<p class="successMessage">The car information was successfully added to the database</p>';
             
 
@@ -223,14 +224,16 @@
         case 'inventory':
             //INPUT GET the invID
             $invId = trim(filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT));
+            
             $vehicle = getInvItemInfo($invId);
+            $thumbnails = getThumbnailPaths($invId);
             
             //show error if no result
             if(!count($vehicle)){
                 $message = "<p class='errorMessage'>Sorry, no information about $vehicle[invMake] $vehicle[invModel] could be found.</p>";
                 include '../view/classification.php';
             } else {
-                $vehicleInfoDisplay = buildVehicleInfoDisplay($vehicle);
+                $vehicleInfoDisplay = buildVehicleInfoDisplay($vehicle, $thumbnails);
             }
             include '../view/vehicle-info.php';
             
