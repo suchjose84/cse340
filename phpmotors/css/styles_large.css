@@ -1,5 +1,9 @@
 @media only screen and (min-width: 64rem) {
 
+    .submitButton {
+        width: 20%;
+    }
+    
     header {
         height: 70px;
     }
@@ -43,7 +47,7 @@
     } 
 
     .boxShadow {
-        width: 40%;
+        width: 50%;
     }
 
     .boxShadow h2 {
@@ -98,6 +102,13 @@
         width: 45%;
         
     }
+
+    /* Review Section */
+
+    /* .reviewForm, .formShowReview {
+        width: 60%;
+        margin: 0 auto;
+    } */
 
 
 }

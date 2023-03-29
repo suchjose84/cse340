@@ -3,7 +3,8 @@
         header('Location: /cse340/phpmotors/');
     }
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,7 +20,7 @@
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles_tablet.css" media="screen">
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles_large.css" media="screen">
 
-    
+
 
 </head>
 
@@ -29,60 +30,59 @@
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
         <nav><?php echo $navList; ?></nav>
         <main class="mainPage">
-        <section class='boxShadow'>
+            <section class='boxShadow'>
                 <h1>Manage Acount</h1>
                 <?php if (isset($message)) {echo $message;}?>
-                
+
                 <h3>Update Information</h3>
-                <fieldset class='fieldsets'>
-                    <div>
-                        <form class='forms' id='updAcctForm' action="/cse340/phpmotors/accounts/?action=client-update" method="post">
-                            
-                            <label for='clientFirstname'>
-                                <input type="text" id='clientFirstname' class="input nameInput acctUpdateInput" name="clientFirstname" required
-                                <?php if(isset($_SESSION['clientData']['clientFirstname'])){
+                <form class='forms acctUpdateForms' id='updAcctForm'
+                    action="/cse340/phpmotors/accounts/?action=client-update" method="post">
+                    <fieldset class='fieldsets'>
+
+                        <label for='clientFirstname'>
+                            <input type="text" id='clientFirstname' class="input nameInput acctUpdateInput"
+                                name="clientFirstname" required <?php if(isset($_SESSION['clientData']['clientFirstname'])){
                                         echo "value='{$_SESSION['clientData']['clientFirstname']}'";
                                     } elseif(isset($clientFirstname)){echo "value='$clientFirstname'";}
                                 ?>>
-                            </label>
-                            <label for='clientLastname'>
-                                <input id='clientLastname' class="input nameInput acctUpdateInput" type="text" placeholder="Last Name"
-                                    name="clientLastname" required <?php if(isset($_SESSION['clientData']['clientLastname'])){
+                        </label>
+                        <label for='clientLastname'>
+                            <input id='clientLastname' class="input nameInput acctUpdateInput" type="text"
+                                placeholder="Last Name" name="clientLastname" required <?php if(isset($_SESSION['clientData']['clientLastname'])){
                                         echo "value='{$_SESSION['clientData']['clientLastname']}'";
                                     } elseif(isset($clientLastname)){echo "value='$clientLastname'";}
                                 ?>>
-                            </label>
-                            
-                            <label for='clientEmail'>
-                                <input type="email" id='clientEmail' class="emailInput input acctUpdateInput" placeholder="Email e.g. johndoe@mail.com" 
-                                name="clientEmail" required <?php if(isset($_SESSION['clientData']['clientEmail'])){
+                        </label>
+
+                        <label for='clientEmail'>
+                            <input type="email" id='clientEmail' class="emailInput input acctUpdateInput"
+                                placeholder="Email e.g. johndoe@mail.com" name="clientEmail" required <?php if(isset($_SESSION['clientData']['clientEmail'])){
                                         echo "value='{$_SESSION['clientData']['clientEmail']}'";
                                     } elseif(isset($clientEmail)){echo "value='$clientEmail'";}
                                 ?>>
-                            </label>
-                            <input type="submit" name='submit' class='submitButton updateAcctBtn' value='Update Info'>
-                            <input type="hidden" name="action" value="accountUpdate">
-
-                        </form>
-                    </div>
-                </fieldset>
+                        </label>
+                        <input type="submit" name='submit' class='submitButton updateAcctSubmit' value='Update'>
+                        <input type="hidden" name="action" value="accountUpdate">
+                    </fieldset>
+                </form>
 
                 <h3>Change Password</h3>
-                <fieldset class='fieldsets'>
-                    <div>
-                        <span class="pwNote">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span><br>
-                        <span class="pwNote">*Note. Your original password will be changed.</span>
-                        <form class='forms' action="/cse340/phpmotors/accounts/?action=account-update" method="post">
-                            <label class='formLabels' for='clientPassword'>
-                                <input type="password" id='clientPassword' class="passwordInput input" placeholder="Password"
-                                name="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
-                            </label>
-                            <input type="submit" name='submit' class='submitButton updateAcctBtn' value='Update Password'>
-                            <input type="hidden" name="action" value="pwordChange">
 
-                        </form>
-                    </div>
-                </fieldset>
+                <form class='forms acctUpdateForms' action="/cse340/phpmotors/accounts/?action=account-update"
+                    method="post">
+                    <fieldset class='fieldsets'>
+                    <strong class="pwNote danger">*Note. Your original password will be changed.</strong>
+                        <label class='formLabels' for='clientPassword'>
+                            <input type="password" id='clientPassword' class="passwordInput input"
+                                placeholder="Password" name="clientPassword" required
+                                pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                                Passwords must be at least 8 characters and contain at least 1 number, 1
+                                capital letter and 1 special character
+                        </label>
+                        <input type="submit" name='submit' class='submitButton updateAcctSubmit' value='Update'>
+                        <input type="hidden" name="action" value="pwordChange">
+                    </fieldset>
+                </form>
             </section>
 
         </main>

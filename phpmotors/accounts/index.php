@@ -13,6 +13,8 @@ require_once '../library/connections.php';
 require_once '../model/main-model.php';
 // Get the accounts model
 require_once '../model/accounts-model.php';
+// Get the reviews model
+require_once '../model/reviews-model.php';
 // Access the functions file
 require_once '../library/functions.php';
 
@@ -24,7 +26,6 @@ session_start();
 $classifications = getClassifications();
 
 // Build a navigation bar using the $classifications array
-// Build a navigation bar using the $classifications array
 $navList = createNav($classifications);
 
 // Get the value from the action name - value pair
@@ -35,13 +36,13 @@ $action = trim(filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_C
         
     switch ($action) {
         // Code to deliver the views will be here
-        case 'login';
+        case 'login':
             include '../view/login.php';
         break;
-        case 'signup';
+        case 'signup':
             include '../view/register.php';
         break;
-        case 'signin';
+        case 'signin':
 
             $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
             $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -80,18 +81,20 @@ $action = trim(filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_C
             // element from an array
             array_pop($clientData);
 
-            // Store the array into the session
-            $_SESSION['clientData'] = $clientData;
+            // Get reviews from database using client id from session
+            $reviews = getReviewsByClientId($clientData['clientId']);
 
-            // Send them to the admin view
+            // Put reviews and client data in session so we will not lose it. We are using header below, not include
+            $_SESSION['clientData'] = $clientData;
+            
             header('location: /cse340/phpmotors/accounts');
             exit;
 
         break;
         case 'register':
             // Filter and store the data
-            $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-            $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+            $clientFirstname = ucfirst(trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
+            $clientLastname = ucfirst(trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
             $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
             $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
@@ -138,10 +141,10 @@ $action = trim(filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_C
             header('Location: /cse340/phpmotors/');
 
         break;
-        case 'client-update';
+        case 'client-update':
             include '../view/client-update.php';
         break;
-        case 'accountUpdate';
+        case 'accountUpdate':
 
             // Filter data from Post
             $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -189,7 +192,7 @@ $action = trim(filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_C
             }
             
         break;
-        case 'pwordChange';
+        case 'pwordChange':
             //filter from post
             $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             
@@ -222,6 +225,7 @@ $action = trim(filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_C
  
         break;
         default:
+            $reviews = getReviewsByClientId($_SESSION['clientData']['clientId']);
             include '../view/admin.php';
         break;
     }        

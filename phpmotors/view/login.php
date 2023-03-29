@@ -30,17 +30,17 @@
                     }
                 ?>
                 
-                <form class='forms' action="/cse340/phpmotors/accounts/" method="post">
-                    <label class='formLabels'>
-                        <input type="email" name="clientEmail" id='loginEmailInput' class='input emailInput'
+                <form class='forms loginForm' action="/cse340/phpmotors/accounts/" method="post">
+                    <label class='formLabels loginLabels'>
+                        <input type="email" name="clientEmail" class='input loginFormInput emailInput'
                         placeholder="Email e.g. johndoe@mail.com" autofocus required <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>>
                     </label>
-                    <label class='formLabels'>
-                        <span class="pwNote">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
-                        <input type="password" name="clientPassword" id='loginPasswordInput' class='input passwordInput' placeholder="Password" required
+                    <label class='formLabels loginLabels'>
+                        <input type="password" name="clientPassword" id='loginPasswordInput' class='input loginFormInput passwordInput' placeholder="Password" required
                         pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                        <span class="pwNote">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
                     </label>
-                    <input type="submit" name="submit" id="loginButton" class='submitButton' value="Log In">
+                    <input type="submit" name="submit" class='submitButton loginFormInput loginSubmit' value="Log In">
                     <input type="hidden" name="action" value="signin">
                     <p id='loginP'>No account yet? <a href="http://localhost/cse340/phpmotors/accounts/?action=signup">Register</a></p>
 

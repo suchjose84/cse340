@@ -15,6 +15,8 @@
     require_once '../model/vehicles-model.php';
     // Access the uploads model file
     require_once '../model/uploads-model.php';
+    // Access the uploads model file
+    require_once '../model/reviews-model.php';
     // Access the functions file
     require_once '../library/functions.php';
     
@@ -35,7 +37,7 @@
     }
             
     switch ($action) {
-        case 'add-vehicle';
+        case 'add-vehicle':
             include '../view/addVehicle.php';
         break;
         case 'add-classification';
@@ -43,7 +45,7 @@
         break;
 
         
-        case 'addClassificationSubmit';
+        case 'addClassificationSubmit':
             //Filter and store the data
             $classificationName = trim(filter_input(INPUT_POST, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS ));
             
@@ -67,7 +69,7 @@
             }
         break;
 
-        case 'addVehicleSubmit';
+        case 'addVehicleSubmit':
             //Filter and store the data
             $classificationId = filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_NUMBER_INT);
             $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -119,8 +121,8 @@
             // Get the classificationId 
             $classificationId = trim(filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT));
             // Fetch the vehicles by classificationId from the DB 
-            $inventoryArray = getInventoryByClassification($classificationId); 
-            // Convert the array to a JSON object and send it back 
+            $inventoryArray = getInventoryByClassification($classificationId);
+            // Convert the array to a JSON object and send it back
             echo json_encode($inventoryArray); 
         break;
 
@@ -157,7 +159,7 @@
             //Send the data to the model
             $updateResult = updateVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 
             $invStock, $invColor, $classificationID, $invId);
-            $message = '<p class="successMessage">Congratulations,   the $invMake $invModel was successfully updated.</p>';
+            // $message = '<p class="successMessage">Congratulations,   the $invMake $invModel was successfully updated.</p>';
             
 
             //Check and report the result
@@ -215,25 +217,40 @@
             if(!count($vehicles)){
                 $message = "<p class='errorMessage'>Sorry, no $classificationName vehicles could be found.</p>";
                 include '../view/vehicles.php';
+                exit;
             } else {
                 $vehicleDisplay = buildVehiclesDisplay($vehicles);
             }
             include '../view/classification.php';
+            exit;
 
         break;
         case 'inventory':
             //INPUT GET the invID
             $invId = trim(filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT));
             
+            //get vehicle information
             $vehicle = getInvItemInfo($invId);
+
+            //Create session with vehicle information in it
+            $_SESSION['invData'] = $vehicle;
+
+            //Get thumbnail paths from database, model function
             $thumbnails = getThumbnailPaths($invId);
-            
+            //Get reviews from database, model function
+            $reviews = getReviews($invId);
+            // print_r($reviews[0]);
+            // exit;
+
             //show error if no result
             if(!count($vehicle)){
                 $message = "<p class='errorMessage'>Sorry, no information about $vehicle[invMake] $vehicle[invModel] could be found.</p>";
                 include '../view/classification.php';
+                
             } else {
                 $vehicleInfoDisplay = buildVehicleInfoDisplay($vehicle, $thumbnails);
+                $showReviews = buildReviews($reviews);
+                
             }
             include '../view/vehicle-info.php';
             
@@ -241,9 +258,8 @@
 
         default:
         $classificationList = buildClassificationList($classifications);
-        
-
             include '../view/vehicle-man.php';
+
         break;
     }        
 

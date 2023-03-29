@@ -30,32 +30,32 @@
                 ?>
 
 
-                <form class='forms' action="/cse340/phpmotors/accounts/" method="post">
+                <form class='forms regForms' action="/cse340/phpmotors/accounts/" method="post">
                     <div>
-                        <label for='clientFirstname'>
-                            <input type="text" id='fname' class="input nameInput" placeholder="First Name" autofocus
+                        <label for='clientFirstname' class="label regLabels">
+                            <input type="text" id='clientFirstname' class="input nameInput" placeholder="First Name" autofocus
                                 name="clientFirstname" required <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";} ?>>
                         </label>
-                        <label for='clientLastname'>
-                            <input id='lname' class="input nameInput" type="text" placeholder="Last Name"
+                        <label for='clientLastname' class="label regLabels">
+                            <input id='clientLastname' class="input nameInput" type="text" placeholder="Last Name"
                                 name="clientLastname" required <?php if(isset($clientLastname)){echo "value='$clientLastname'";} ?>>
                         </label>
                     </div>
-                    <label class='formLabels' for='clientEmail'>
-                        <input type="email" id='email' class="emailInput input"placeholder="Email e.g. johndoe@mail.com" 
+                    <label class="label regLabels" for='clientEmail'>
+                        <input type="email" id='clientEmail' class="emailInput input" placeholder="Email e.g. johndoe@mail.com" 
                         name="clientEmail" required <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>>
                     </label>
-                    <label class='formLabels' for='clientPassword'>
-                    <span class="pwNote">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
-                        <input type="password" id='password' class="passwordInput input" placeholder="Password"
+                    <label class="label regLabels" for='clientPassword'>
+                    <input type="password" id='clientPassword' class="passwordInput input" placeholder="Password"
                             name="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                            <span class="pwNote">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
                     </label>
-                    <input type="submit" name='submit' id="regButton" class='submitButton' value='Register'>
+                    <input type="submit" name='submit' id="regButton" class='submitButton regSubmit' value='Register'>
+                    <label id="regP">Already have an account? <a
+                        href="http://localhost/cse340/phpmotors/accounts/?action=login">Log in</a></label>
                     <input type="hidden" name="action" value="register">
 
                 </form>
-                <p id="regP">Already have an account? <a
-                        href="http://localhost/cse340/phpmotors/accounts/?action=login">Log in</a></p>
             </section>
         </main>
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/footer.php'?>

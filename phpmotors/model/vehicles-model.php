@@ -85,21 +85,21 @@
 
     // Get vehicle information by invId
     function getInvItemInfo($invId){
-    $db = phpmotorsConnect();
-    $sql = 'SELECT inventory.invId, inventory.invMake, inventory.invModel, inventory.invDescription, inventory.invPrice,
-        inventory.invStock, inventory.invColor, inventory.classificationId, images.imgPrimary, images.imgPath
-        FROM inventory 
-        INNER JOIN images ON inventory.invId = images.invId
-        WHERE inventory.invId = :invId
-        AND images.imgPrimary = 1
-        AND images.imgName NOT LIKE '.'"%-tn%"';
-
-    $stmt = $db->prepare($sql);
-    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
-    $stmt->execute();
-    $invInfo = $stmt->fetch(PDO::FETCH_ASSOC);
-    $stmt->closeCursor();
-    return $invInfo;
+        $db = phpmotorsConnect();
+        $sql = 'SELECT inventory.invId, inventory.invMake, inventory.invModel, inventory.invDescription, inventory.invPrice,
+            inventory.invStock, inventory.invColor, inventory.classificationId, images.imgPrimary, images.imgPath
+            FROM inventory 
+            INNER JOIN images ON inventory.invId = images.invId
+            WHERE inventory.invId = :invId
+            AND images.imgPrimary = 1
+            AND images.imgName NOT LIKE '.'"%-tn%"'
+        ;
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+        $stmt->execute();
+        $invInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->closeCursor();
+        return $invInfo;
     }
 
     //this function will update classification to carClassification database

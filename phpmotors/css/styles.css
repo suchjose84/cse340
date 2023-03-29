@@ -8,6 +8,8 @@ blackish = #3a3a3a , rgb(58,58,58)
 whitish = #ffffff
 
 */
+
+/* DEFAULT STYLES*/
 html{
     box-sizing: border-box;
    }
@@ -15,10 +17,37 @@ html{
    *, *:before, *:after{
     box-sizing: inherit;
 }
+p {
+    font-size: 1.1rem;
+}
+.boxShadow {
+    display: flex;
+    flex-direction: column;
+    padding: 4%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 10px;
+}
+.input{
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ccd0d5;
+    width: 100%;
+    height: 40px;
+}
+input:focus,
+select:focus,
+textarea:focus {
+    outline-color: rgba(0, 0, 0, 0.6);
+}
 
 h1,h2,p {
     padding: 0;
     margin: 0;
+}
+.forms {
+    display: flex;
+    flex-direction: column;
 }
 a {
     text-decoration: none;
@@ -35,6 +64,23 @@ ul {
     margin: 0;
     padding: 0;
 }
+.submitButton {
+    width: 40%;
+    border-radius: 5px;
+    border: solid 2px rgba(38, 75, 107, .3);
+    background-color: rgba(76,150,215, 1);
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 5px 5px;
+
+}
+.submitButton:focus {
+    outline: solid 2px #4169E1;
+}
+.submitButton:hover {
+    background-color: rgba(76,150,215, .8);
+}
 
 body {
     font-family: 'Genos', Arial, Helvetica, sans-serif;
@@ -47,7 +93,7 @@ body {
     flex-direction: column;
     height: 100vh;
 }
-
+/* HEADER STYLES*/
 
 header {
     height: 50px;
@@ -117,10 +163,6 @@ footer {
 
 footer li {
     text-align: center;
-}
-
-main h1 {
-    font-size: 1.3rem;
 }
 
 main #carSpecCard {
@@ -253,16 +295,6 @@ main #bigCarPic {
 
 /*=========REGISTER PAGE=============*/
 
-
-
-.boxShadow {
-    display: flex;
-    flex-direction: column;
-    padding: 4%;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    border-radius: 10px;
-}
-
 #mainRegister section h1{
     font-size: 2rem;
     text-align: center;
@@ -271,80 +303,34 @@ main #bigCarPic {
     font-size: 1rem;
     text-align: center;
 }
-#mainRegister section button {
-    display: block;
+.regForms{
+    margin-top: 1rem;
+    height: 300px;
 }
 
-main form {
-    padding: 0;
-    margin: 0;
-}
-
-.input{
-    display: block;
-    font-size: 18px;
-    padding: 2%;
-    border-radius: 6px;
-    border: 1px solid #ccd0d5;
-    width: 96%;
-    height: 30px;
-}
 .nameInput {
     padding-left: 4%;
-    width: 94%;
+    width: 100%;
 }
+.regLabels {
+    margin-bottom: 16px;
+    width: 100%;
 
-input:focus,
-select:focus,
-textarea:focus {
-    outline-color: #4c96d7;
 }
-/* .nameInput {
-    width: auto;
-    display: block;
-    margin: 0 auto;
-    width: 82%;
-    
-} */
-/* .emailInput {
-    display: block;
-    margin: 1rem auto 0 auto;
-    width: 92%;
-} */
-.formLabels {
-    display: block;
-    margin: 1rem auto 0 auto;
+.regSubmit {
+    align-self: center;
+    margin-top: 1rem;
 }
 
 #mainRegister div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2%;
-    margin: 1rem auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 
-}
-.submitButton {
-    width: 50%;
-    /* height: 35.75px; */
-    display: block;
-    margin: 3rem auto 0 auto;
-    border-radius: 6px;
-    border: none;
-    background-color: #4c96d7;
-    color: #ffffff;
-    text-align: center;
-    font-size: 1.2rem;
-    padding: 2% 0;
-
-}
-.submitButton:focus {
-    outline: solid 2px #4169E1;
 }
 #regP {
     width: 100%;
-    align-self: flex-end;
-    font-size: larger;
-    margin-top: 1rem;
+    text-align: center;
     
 
 }
@@ -358,25 +344,27 @@ textarea:focus {
 }
 
 /*=========LOGIN PAGE=============*/
+.loginForm {
+    height: 250px;
+}
+.loginLabels {
+    margin-bottom: 16px;
+}
+.loginSubmit {
+    align-self: center;
+    margin-top: 25px;
+
+}
 
 #loginH1 {
     font-size: 2rem;
     text-align: center;
+    margin-bottom: 15px;
 
 }
-/* #loginButton {
-    padding: 0;
-    width: 50%;
-    margin: 3rem auto 0 auto;
-    height: 35.75px;
-    display: block;
-    border-radius: 6px;
-    border: none;
-    background-color: #4c96d7;
-} */
+
 #loginP {
     text-align: center;
-    margin-top: 1rem;
 }
 
 #loginP a:focus {
@@ -454,16 +442,24 @@ textarea:focus {
 
 /*=========Update Account Page=============*/
 .fieldsets {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
     padding: 10px;
-    border-radius: 10px;
-    border: 3px solid rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
 }
-.acctUpdateInput {
-    margin-top: 15px;
-
+fieldset label {
+    margin-bottom: 16px;
 }
-.updateAcctBtn {
-    margin-top: 20px;
+.updateAcctSubmit {
+    align-self: center;
+}
+.danger {
+    color: red;
+    /* font-weight: bold; */
+    margin-bottom: 20px;
 }
 
 /*=========Update Classification Page=============*/
@@ -501,8 +497,8 @@ textarea:focus {
     border-radius: 5px;
     height: 350px;
     text-align: center;
-    background-color: rgba(255, 140, 0, .4);
-    border: 3px solid rgba(255, 140, 0, .5);
+    background-color: #FFEFD5;
+    border: 1px solid rgba(175, 159, 133, 1);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     
 
@@ -612,7 +608,6 @@ textarea:focus {
     width: 90%;
     margin: 0 auto;
     margin-bottom: 16px;
-    font-weight: bold;
 }
 
 .spaceBetween {
@@ -638,6 +633,84 @@ textarea:focus {
     width: 60%;
     border-radius: 3px;
 }
+
+/*=========Reviews Management View=============*/
+
+.reviewForm {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* padding-bottom: 20px; */
+    min-height: 230px;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    border-radius: 5px;
+    justify-content: space-between;
+    background-color: #e8e8e8;
+}
+.reviewTextArea{
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, .5);
+    height: auto;
+}
+.addReviewArea {
+    background-color: whitesmoke;
+}
+.formShowReview textarea {
+    background-color: palegoldenrod;
+}
+
+
+/* background-color: whitesmoke; */
+/* #F8F8FF (ghost white)
+#F5F5F5 (white smoke)
+#F0F0F0 (gainsboro)
+#ECECEC (silver)
+#E8E8E8 (light gray) */
+
+#screenName {
+    font-size: 1.1rem;
+}
+.reviewSubmitButton {
+    width: 40%;
+    align-self: flex-end;
+}
+.reviewDivs {
+    margin-bottom: 30px;
+}
+.reviewForm {
+    font-size: 1.1rem;
+}
+.formShowReview {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-color: #FFEFD5;
+    border: 1px solid rgba(175, 159, 133, 1);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+
+    /* #FFFF00 - This is a bright yellow color, also known as "yellow" in HTML/CSS color codes.
+#FFD700 - This is a darker shade of yellow, also known as "gold".
+#F0E68C - This is a light shade of yellow, also known as "khaki".
+#FFEF96 - This is a pale shade of yellow, also known as "pale yellow".
+#F5DEB3 - This is a sandy shade of yellow, also known as "wheat".
+#FFEFD5 - This is a creamy shade of yellow, also known as "papaya whip".
+#FFF8DC - This is a beige-yellow color, also known as "cornsilk".
+#FCE205 - This is a bright, neon shade of yellow.
+#F1C40F - This is a rich, golden shade of yellow. */
+
+}
+.formShowReview label{
+    height: auto;
+}
+/* .reviewStrong {
+    font-size: 1.2rem;
+} */
+
 
 
 

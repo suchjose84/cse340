@@ -58,7 +58,7 @@
 
     .boxShadow {
         margin: 0 auto;
-        width: 50%;
+        width: 80%;
     }
 
     .boxShadow h2 {
@@ -100,7 +100,7 @@
         display: grid;
         grid-template-columns: .35fr 1.65fr;
         grid-gap: 5px;
-        background-color: rgb(255, 140, 0, .4);
+        background-color: #FFEFD5;
         padding-left: 5px;
         margin-top: 10px;
     }
@@ -150,5 +150,11 @@
         font-size: 1.1rem;
         
     }
+
+    /* Reviews section */
+
+    /* .reviewDivs {
+        font-size: 1.3rem;
+    } */
 
 }

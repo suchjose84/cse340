@@ -40,10 +40,32 @@
                 <li>Client Last Name: <?php echo $_SESSION['clientData']['clientLastname']?></li>
                 <li>Client Email: <?php echo $_SESSION['clientData']['clientEmail']?></li>
             </ul>
+            <div>
+                <h3>Account Management</h3>
+                <p>Use this link to update account information</p>
+                <a href="/cse340/phpmotors/accounts/?action=client-update">Update Account Information</a>
+                <h3>Manage your Product Reviews</h3>
 
-            <h3>Account Management</h3>
-            <p>Use this link to update account information</p>
-            <a href="/cse340/phpmotors/accounts/?action=client-update">Update Account Information</a>
+                <?php
+                    
+                    if(isset($reviews) && !empty($reviews)) {
+                        $dv = "<ul>";
+                        foreach($reviews as $review){
+                            $date = date("F j, Y h:i A", strtotime($review['reviewDate']));
+                            $dv .= "<li>{$review['invMake']}{$review['invModel']} (Reviewed on $date): ";
+                            $dv .= "<a href='/cse340/phpmotors/reviews/?action=mod&reviewId={$review['reviewId']}'>Edit</a>";
+                            $dv .= " | <a href='/cse340/phpmotors/reviews/?action=del&reviewId={$review['reviewId']}'>Delete</a></li>";
+                        }
+                        $dv .= "</ul>";
+                        echo $dv;
+                    } else {
+                        echo "No reviews found.";
+                    }
+
+                ?>
+
+
+            </div>
 
             <?php 
                 if($_SESSION['clientData']['clientLevel'] > 1) {
@@ -73,4 +95,4 @@
 
 </body>
 
-</html>
+</html><?php unset($_SESSION['message']);?>

@@ -5,22 +5,23 @@
  classificationList.addEventListener("change", function () { 
   let classificationId = classificationList.value; 
   console.log(`classificationId is: ${classificationId}`); 
-  let classIdURL = "/cse340/phpmotors/vehicles/index.php?action=getInventoryItems&classificationId=" + classificationId; 
-  fetch(classIdURL) 
+  let classIdURL = "/cse340/phpmotors/vehicles/index.php?action=getInventoryItems&classificationId=" + classificationId;
+  fetch(classIdURL)
   .then(function (response) { 
-   if (response.ok) { 
+   if (response.ok) {
+    console.log(response);
     return response.json(); 
    } 
    throw Error("Network response was not OK"); 
   }) 
   .then(function (data) { 
-   console.log(data); 
+   console.log(data);
    buildInventoryList(data); 
   }) 
   .catch(function (error) { 
    console.log('There was a problem: ', error.message); 
   }) 
- });
+ })
 
  // Build inventory items into HTML table components and inject into DOM 
 function buildInventoryList(data) { 

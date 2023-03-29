@@ -113,7 +113,6 @@
             $dv .= "<div id='thumbnailsOnBottomBox'>";
                 $dv .= "<h3>Vehicle Thumbnails</h3>";
                 $dv .= buildThumbnails($vehicle, $thumbnails);
-
             $dv .= "</div>";
         $dv .= '</div>';
         return $dv;
@@ -144,20 +143,6 @@
         return $image;
     }
 
-    // Build images display for image management view
-    // function buildImageDisplay2($imageArray) {
-    //     $id = '<ul class="ul uploadUl" id="image-display">';
-    //     foreach ($imageArray as $image) {
-
-    //     $id .= '<li>';
-    //     $id .= "<img src='$image[imgPath]' title='$image[invMake] $image[invModel] image on PHP Motors.com' alt='$image[invMake] $image[invModel] image on PHP Motors.com'>";
-    //     $id .= "<p><a href='/cse340/phpmotors/uploads?action=delete&imgId=$image[imgId]&filename=$image[imgName]' title='Delete the image'>Delete $image[imgName]</a></p>";
-    //     $id .= '</li>';
-    // }
-    //     $id .= '</ul>';
-    //     return $id;
-    // }
-
     function buildImageDisplay($imageArray) {
         $id = '<ul class="ul uploadUl" id="image-display">';
         foreach ($imageArray as $image) {
@@ -170,6 +155,52 @@
         }
         $id .= '</ul>';
         return $id;
+    }
+
+    /* * ********************************
+    *  Functions for working with reviews
+    * ********************************* */
+    function buildReviews($reviews){
+        //Show review form if client is logged in
+        $dv = "<div class='reviewDivs'>";
+        $dv .= "<h2>Customer Reviews</h2>";
+        $dv .= "<h3>Review the {$_SESSION['invData']['invMake']} {$_SESSION['invData']['invModel']}</h3>";
+        if(isset($_SESSION['message'])){
+            $dv .= "$_SESSION[message]";
+        }
+        if(isset($_SESSION['loggedin'])){
+            $firstLetter = substr($_SESSION['clientData']['clientFirstname'], 0, 1);
+            $dv .= '<form class="reviewForm" action="/cse340/phpmotors/reviews/" method="post">';
+                $dv .= "<label id='screenName'>Screen Name: {$firstLetter}{$_SESSION['clientData']['clientLastname']}</label>";
+                $dv .= "<label class='top' for='addReviewInput'>Review:";
+                $dv .= "<textarea name='reviewText' required rows='auto' class='addReviewArea autoSize' placeholder='Write your review here' maxlength='500'></textarea></label>";
+                $dv .= "<span id='remainingSpan'></span>";
+                $dv .= "<input type='submit' class='submitButton reviewSubmitButton' value='Submit Review'>";
+                $dv .= "<input type='hidden' name='invId' value='{$_SESSION['invData']['invId']}'>";
+                $dv .= "<input type='hidden' name='clientId' value='{$_SESSION['clientData']['clientId']}'>";
+                $dv .= "<input type='hidden' name='action' value='add-review'>";
+            $dv .= '</form>';
+        } else {
+            $dv .= '<p>You must <a href="/cse340/phpmotors/accounts/?action=login">log in</a> to create a review</p>';
+        }
+        $dv .= "</div>";
+
+        //Show reviews. If there are no reviews, tell the client to write a review if client is logged in. Show
+        //show nothing if client is not logged in and no vehicles reviews in database
+        $dv .= "<div class='reviewDivs' id='listedReviewsBox'>";
+        if(!count($reviews) && isset($_SESSION['loggedin'])){
+            $dv .= "<h3>No reviews yet. Be the first to write a review.</h3>";
+        }
+        foreach($reviews as $review) {
+            $firstLetter = substr($review['clientFirstname'], 0, 1);
+            $date = date("F j, Y h:i A", strtotime($review['reviewDate']));
+            $dv .= "<form class='formShowReview'>";
+            $dv .= "<label class='top'>{$firstLetter}{$review['clientLastname']} wrote on {$date}";
+            $dv .= "<textarea class='top autoSize' readonly>{$review['reviewText']}</textarea></label>";
+            $dv .= "</form>";
+        }
+        $dv .= '</div>';
+        return $dv;
     }
     
 
@@ -305,5 +336,6 @@
         imagedestroy($old_image);
     } // ends resizeImage function
 
+    
 
 ?>
