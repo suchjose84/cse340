@@ -172,9 +172,9 @@
             $firstLetter = substr($_SESSION['clientData']['clientFirstname'], 0, 1);
             $dv .= '<form class="reviewForm" action="/cse340/phpmotors/reviews/" method="post">';
                 $dv .= "<label id='screenName'>Screen Name: {$firstLetter}{$_SESSION['clientData']['clientLastname']}</label>";
-                $dv .= "<label class='top' for='addReviewInput'>Review:";
-                $dv .= "<textarea name='reviewText' required rows='auto' class='addReviewArea autoSize' placeholder='Write your review here' maxlength='500'></textarea></label>";
-                $dv .= "<span id='remainingSpan'></span>";
+                $dv .= "<label class='top' for='addReviewInput'>Review: Max 500 chars";
+                $dv .= "<textarea name='reviewText' required id='addReviewInput' class='reviewTextArea autoSize' placeholder='Write your review here' maxlength='500'></textarea></label>";
+                $dv .= "<span class='remainingSpan'></span>";
                 $dv .= "<input type='submit' class='submitButton reviewSubmitButton' value='Submit Review'>";
                 $dv .= "<input type='hidden' name='invId' value='{$_SESSION['invData']['invId']}'>";
                 $dv .= "<input type='hidden' name='clientId' value='{$_SESSION['clientData']['clientId']}'>";
@@ -203,8 +203,6 @@
         return $dv;
     }
     
-
-
     // Build the vehicles select list
     function buildVehiclesSelect($vehicles) {
         $prodList = '<select class="select" name="invId" id="invItem">';

@@ -20,6 +20,15 @@ html{
 p {
     font-size: 1.1rem;
 }
+.top {
+    display: flex;
+    flex-direction: column;
+}
+.spaceBetween {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .boxShadow {
     display: flex;
     flex-direction: column;
@@ -73,6 +82,7 @@ ul {
     text-align: center;
     font-size: 1.2rem;
     padding: 5px 5px;
+    align-self: flex-end;
 
 }
 .submitButton:focus {
@@ -371,6 +381,12 @@ main #bigCarPic {
     outline: none;
     text-decoration: underline;
 }
+/************ADMIN PAGE******************/
+.adminMain li,a {
+    font-size: 1.1rem;
+    
+}
+
 
 
 /*=========Add Vehicle Page=============*/
@@ -381,10 +397,6 @@ main #bigCarPic {
 }
 
 .addVehicleForm {
-    display: flex;
-    flex-direction: column;
-}
-.top {
     display: flex;
     flex-direction: column;
 }
@@ -443,19 +455,20 @@ main #bigCarPic {
 /*=========Update Account Page=============*/
 .fieldsets {
     width: 100%;
-    height: 250px;
     display: flex;
     flex-direction: column;
     padding: 10px;
     border-radius: 5px;
     border: 2px solid rgba(0, 0, 0, 0.5);
+    justify-content: space-between;
+    
 }
 fieldset label {
     margin-bottom: 16px;
 }
-.updateAcctSubmit {
+/* .updateAcctSubmit {
     align-self: center;
-}
+} */
 .danger {
     color: red;
     /* font-weight: bold; */
@@ -610,7 +623,7 @@ fieldset label {
     margin-bottom: 16px;
 }
 
-.spaceBetween {
+.rowSpaceBetween {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -646,18 +659,21 @@ fieldset label {
     border-radius: 5px;
     justify-content: space-between;
     background-color: #e8e8e8;
+    margin-top: 5px;
 }
 .reviewTextArea{
     border-radius: 5px;
     padding: 5px;
     border: 1px solid rgba(0, 0, 0, .5);
-    height: auto;
 }
 .addReviewArea {
     background-color: whitesmoke;
 }
 .formShowReview textarea {
     background-color: palegoldenrod;
+}
+.deleteReviewSubmit {
+    align-self: flex-end;
 }
 
 
@@ -693,23 +709,10 @@ fieldset label {
     border-radius: 5px;
     font-size: 1.1rem;
 
-    /* #FFFF00 - This is a bright yellow color, also known as "yellow" in HTML/CSS color codes.
-#FFD700 - This is a darker shade of yellow, also known as "gold".
-#F0E68C - This is a light shade of yellow, also known as "khaki".
-#FFEF96 - This is a pale shade of yellow, also known as "pale yellow".
-#F5DEB3 - This is a sandy shade of yellow, also known as "wheat".
-#FFEFD5 - This is a creamy shade of yellow, also known as "papaya whip".
-#FFF8DC - This is a beige-yellow color, also known as "cornsilk".
-#FCE205 - This is a bright, neon shade of yellow.
-#F1C40F - This is a rich, golden shade of yellow. */
-
 }
-.formShowReview label{
-    height: auto;
+.reviewListAdmin {
+    list-style-type:decimal;
 }
-/* .reviewStrong {
-    font-size: 1.2rem;
-} */
 
 
 

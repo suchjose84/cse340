@@ -24,7 +24,7 @@
         <!--header, nav, and footer templates-->
         <?php require $_SERVER['DOCUMENT_ROOT'].'/cse340/phpmotors/snippets/header.php'?>
         <nav><?php echo $navList; ?></nav>
-        <main class="mainPage">
+        <main class="mainPage adminMain">
             
             <h1><?php echo $_SESSION['clientData']['clientFirstname']." ".$_SESSION['clientData']['clientLastname'];?></h1>
             <?php 
@@ -49,14 +49,14 @@
                 <?php
                     
                     if(isset($reviews) && !empty($reviews)) {
-                        $dv = "<ul>";
+                        $dv = "<ol class=reviewListAdmin>";
                         foreach($reviews as $review){
                             $date = date("F j, Y h:i A", strtotime($review['reviewDate']));
                             $dv .= "<li>{$review['invMake']}{$review['invModel']} (Reviewed on $date): ";
                             $dv .= "<a href='/cse340/phpmotors/reviews/?action=mod&reviewId={$review['reviewId']}'>Edit</a>";
                             $dv .= " | <a href='/cse340/phpmotors/reviews/?action=del&reviewId={$review['reviewId']}'>Delete</a></li>";
                         }
-                        $dv .= "</ul>";
+                        $dv .= "</ol>";
                         echo $dv;
                     } else {
                         echo "No reviews found.";

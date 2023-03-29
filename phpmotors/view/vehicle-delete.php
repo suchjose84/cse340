@@ -52,7 +52,7 @@
                     if(isset($invInfo['invDescription'])) {echo $invInfo['invDescription']; }
                     ?></textarea>
 
-                    <input type="submit" name="submit" class="vehicleSubmitButton submitButton" value="Delete Vehicle">
+                    <input type="submit" name="submit" class="vehicleSubmitButton submitButton" value="Delete">
 
                     <input type="hidden" name="action" value="deleteVehicle">
                     <input type="hidden" name="invId" value="<?php if(isset($invInfo['invId'])){

@@ -104,6 +104,10 @@
     }
 
     /* Review Section */
+    
+    .reviewFieldset {
+        margin-left: 0;
+    }
 
     /* .reviewForm, .formShowReview {
         width: 60%;

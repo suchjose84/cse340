@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2023 at 03:12 PM
+-- Generation Time: Mar 30, 2023 at 12:45 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -133,7 +133,9 @@ INSERT INTO `images` (`imgId`, `invId`, `imgName`, `imgPath`, `imgDate`, `imgPri
 (101, 10, 'camaro2.jpg', '/cse340/phpmotors/images/vehicles/camaro2.jpg', '2023-03-21 17:22:45', 0),
 (102, 10, 'camaro2-tn.jpg', '/cse340/phpmotors/images/vehicles/camaro2-tn.jpg', '2023-03-21 17:22:45', 0),
 (103, 10, 'camaro3.jpg', '/cse340/phpmotors/images/vehicles/camaro3.jpg', '2023-03-21 17:23:06', 0),
-(104, 10, 'camaro3-tn.jpg', '/cse340/phpmotors/images/vehicles/camaro3-tn.jpg', '2023-03-21 17:23:06', 0);
+(104, 10, 'camaro3-tn.jpg', '/cse340/phpmotors/images/vehicles/camaro3-tn.jpg', '2023-03-21 17:23:06', 0),
+(105, 20, 'mitsubishi-L300.jpg', '/cse340/phpmotors/images/vehicles/mitsubishi-L300.jpg', '2023-03-29 22:32:28', 1),
+(106, 20, 'mitsubishi-L300-tn.jpg', '/cse340/phpmotors/images/vehicles/mitsubishi-L300-tn.jpg', '2023-03-29 22:32:28', 1);
 
 -- --------------------------------------------------------
 
@@ -174,7 +176,8 @@ INSERT INTO `inventory` (`invId`, `invMake`, `invModel`, `invDescription`, `invI
 (13, 'Aerocar International', 'Aerocar', 'Are you sick of rush hour traffic? This car converts into an airplane to get you where you are going fast. Only 6 of these were made, get this one while it lasts!', '/cse340/phpmotors/images/vehicles/aerocar.jpg', '/cse340/phpmotors/images/vehicles/aerocar-tn.jpg', '1000000', 1, 'Red', 2),
 (14, 'FBI', 'Surveillance Van', 'Do you like police shows? You will feel right at home driving this van. Comes complete with surveillance equipment for an extra fee of $2,000 a month.', '/cse340/phpmotors/images/vehicles/fbi.jpg', '/cse340/phpmotors/images/vehicles/fbi-tn.jpg', '20000', 1, 'Green', 1),
 (15, 'Dog', 'Car', 'Do you like dogs? Well, this car is for you straight from the 90s from Aspen, Colorado we have the original Dog Car complete with fluffy ears.', '/cse340/phpmotors/images/vehicles/no-image.png', '/cse340/phpmotors/images/vehicles/no-image-tn.png', '35000', 1, 'Brown', 2),
-(16, 'DMC', 'DeLorean', 'The DMC DeLorean is a rear-engine two-passenger sports car manufactured and marketed by John DeLorean&#039;s DeLorean Motor Company (DMC) for the American market from 1981 until 1983&mdash;ultimately the only car brought to market by the fledgling company. The DeLorean is sometimes referred to by its internal DMC pre-production designation, DMC-12. However, the DMC-12 name was never used in sales or marketing materials for the production model.', '/cse340/phpmotors/images/vehicles/delorean.jpg', '/cse340/phpmotors/images/vehicles/delorean-tn.jpg', '123', 123, 'Silver', 2);
+(16, 'DMC', 'DeLorean', 'The DMC DeLorean is a rear-engine two-passenger sports car manufactured and marketed by John DeLorean&#039;s DeLorean Motor Company (DMC) for the American market from 1981 until 1983&mdash;ultimately the only car brought to market by the fledgling company. The DeLorean is sometimes referred to by its internal DMC pre-production designation, DMC-12. However, the DMC-12 name was never used in sales or marketing materials for the production model.', '/cse340/phpmotors/images/vehicles/delorean.jpg', '/cse340/phpmotors/images/vehicles/delorean-tn.jpg', '123', 123, 'Silver', 2),
+(20, 'Mitsubishi', 'L300', 'The Mitsubishi L300 with FB rear body is the perfect family and business vehicle. It can carry 15-17 people and still accommodate a couple of luggage.', '/cse340/phpmotors/images/vehicles/mitsubishi-L300.jpg', '/cse340/phpmotors/images/vehicles/mitsubishi-L300-tn.jpg', '14979', 10, 'White', 4);
 
 -- --------------------------------------------------------
 
@@ -195,12 +198,12 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`reviewId`, `reviewText`, `reviewDate`, `invId`, `clientId`) VALUES
-(72, 'fasdfasdf\r\nasf\r\nasdf\r\nasf\r\nasdf\r\nasd\r\nfasdf', '2023-03-29 01:40:00', 2, 4),
-(73, 'sfasfasdfasdfadsf\r\n&lt;p&gt;HiHoHiHoHiHoHiHoHiHoHiHoHiHoHiHoHiHoHiHoHiHoHiHoHiHo&lt;/p&gt;', '2023-03-29 01:41:16', 2, 4),
 (74, 'fasdfasfdaal;sdkfjlasdfkjalsdfkj;lasdfkjals;dfkjal;sfkjal;sdfkja;lsdfkjals;dfkjals;dfkjalsdfkjal;sfkjla;sdfkjla;sdkfjla;skdfjl;asdkfjl;askdfj;lasdkfjl;asdkfjl;asdkfjl;asdkfjl;asdfkjal;sdfkjal;sdfkjal;sdfkjla;sdfkj;lasdkfjlasdfkjla;dksfjl;adskfjl;asdjfl;askdjfl;askdjfl;askdjfl;asdkjfl;askdjfl;aksdjf;laksdjfl;asdjfla;skdjfl;askdfjl;aksdfjl;adksfjl;aksdfjl;adsfkjasdlfkjals;dfkjasld;fkjasdl;fkjasdl;fkjasld;fkjals;dfkjasdl;fkjasld;fkjasdlfkjasdfl', '2023-03-29 01:44:02', 2, 4),
 (75, 'd;lasdkfj;alsdkfjasl;dfkjas;ldfkjas;ldfkja;sldfkjas;ldfkjas;ldfkj;alsdfkja;lsdfkja;lsdfkja;lsdfkja;sldfkja;sldfkjas;lfkjasdf;lkjasdfl;kjasdf;lkjasdf;lkjasdf;lkjasdf;lkajsdf;lakjsdf;laksjdf;lasdkjfl;askdjf;laskdjfa;lskdfja;lsdkfja;lsdkfja;sldfkjasd;lfkjasd;flkjasdf;lkjasdf;lkajdsf;lakjsdf;alsdkfja;sldfkjasd;fljkasdf;lkjasdfl;kjadsf;lkjasdf;ljkasdf;lkjasdf;lkjasdfl;kjasdf;lakjsdf;laksjdf;alskdfja;lsdkfja;sldfkja;sldfkjas;dlfkjasd;lfkjasd;fljas;dlfkja;lsdfkj;alsdkfj;lkajsdf;lakjsfd;lakjsdf;laksdfj;', '2023-03-29 01:44:41', 2, 4),
-(76, 'asdf;lkjl;adsfkj asld;fkjasld;fkj asl;dfkjasldfkjas asl;dkfjasl;dfkja', '2023-03-29 01:44:58', 2, 4),
-(80, 'safdasfasdfasdfasdfasdfdfadsfads', '2023-03-29 02:11:19', 2, 4);
+(76, 'What&#039;s I love about this car is because it&#039;s a Ford.', '2023-03-29 01:44:58', 2, 4),
+(81, 'fasfasfasdf\r\nasfasdfasdfasdf\r\nasdfasdfasfasdf\r\nasdfasdfasdf\r\nasdfasdfasdf', '2023-03-29 20:12:55', 1, 4),
+(82, 'dfasdfasfasfd', '2023-03-29 20:14:52', 1, 4),
+(84, 'Hi! I&#039;m Batman', '2023-03-29 21:23:36', 6, 4);
 
 --
 -- Indexes for dumped tables
@@ -248,7 +251,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `carclassification`
 --
 ALTER TABLE `carclassification`
-  MODIFY `classificationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `classificationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `clients`
@@ -260,19 +263,19 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `imgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `imgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `invId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `invId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `reviewId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `reviewId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- Constraints for dumped tables

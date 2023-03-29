@@ -30,6 +30,7 @@
             ?></h1>
 
             <?php if (isset($_SESSION['message'])) {echo $_SESSION['message'];}?>
+            <p class='errorMessage'>*Deletes cannot be undone. Are you sure you want to delete this review?</p>
             <h3><?php if(isset($reviewInfo['reviewDate'])){
                 $date = date("F j, Y h:i A", strtotime($reviewInfo['reviewDate']));
                     echo "Reviewed on $date";
@@ -38,16 +39,15 @@
                     echo "Reviewed on $date";
                 }
             ?></h3>
-            <p class='errorMessage'>Deletes cannot be undone. Are you sure you want to delete this review?</p>
 
             <form class="forms" action="/cse340/phpmotors/reviews/?action=update-review" method="post">
-                <fieldset>
-                    <label class="top">Review Text<textarea readonly name="reviewText" class='reviewTextArea autoSize'><?php if(isset($reviewInfo['reviewText'])){ 
+                <fieldset class='fieldsets boxShadow reviewFieldset'>
+                    <label class="top">Review<textarea readonly name="reviewText" class='reviewTextArea autoSize'><?php if(isset($reviewInfo['reviewText'])){ 
                         echo "$reviewInfo[reviewText]";} 
                         elseif(isset($reviewText)) { 
                         echo "$reviewText";}?></textarea>
                     </label>
-                    <input type="submit" name='submit' class="submitButton" value='Delete'>
+                    <input type="submit" name='submit' class="submitButton deleteReviewSubmit" value='Delete'>
                     <input type="hidden" name='action' value='delete-review'>
                     <input type="hidden" name='reviewId' value="<?php 
                         if(isset($reviewInfo['reviewId'])){
@@ -67,7 +67,6 @@
                         } elseif(isset($invModel)){ 
                             echo $invModel;
                         } ?>">
-                    </label>
                 </fieldset>
         
             </form>

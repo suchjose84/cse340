@@ -22,7 +22,7 @@
         <nav><?php echo $navList; ?></nav>
         <main class="mainPage">
             <h1><?php if(isset($reviewInfo['invMake']) && isset($reviewInfo['invModel'])){ 
-                echo "$reviewInfo[invMake] $reviewInfo[invModel] Review";} 
+                echo "Update $reviewInfo[invMake] $reviewInfo[invModel] Review";} 
                 elseif(isset($invMake) && isset($invModel)) { 
                 echo "$invMake $invModel Review"; }
             ?></h1>
@@ -37,14 +37,17 @@
                 }
             ?></h3>
 
-            <form class="forms" action="/cse340/phpmotors/reviews/?action=update-review" method="post">
-                <fieldset>
-                    <label class="top">Review Text<textarea rows="auto" name="reviewText" class='reviewTextArea autoSize'><?php if(isset($reviewInfo['reviewText'])){ 
+            <form class="forms editReviewForm" action="/cse340/phpmotors/reviews/?action=update-review" method="post">
+                <fieldset class='fieldsets boxShadow reviewFieldset'>
+                    <label class="top">Review: Max 500 chars<textarea name="reviewText" class='reviewTextArea autoSize' maxlength="500"><?php if(isset($reviewInfo['reviewText'])){ 
                         echo "$reviewInfo[reviewText]";} 
                         elseif(isset($reviewText)) { 
                         echo "$reviewText";}?></textarea>
                     </label>
-                    <input type="submit" name='submit' class="submitButton" value='Update'>
+                    <div class='rowSpaceBetween'>
+                        <span class=remainingSpan></span>
+                        <input type="submit" name='submit' class="submitButton" value='Update'>
+                    </div>
                     <input type="hidden" name='action' value='update-review'>
                     <input type="hidden" name='reviewId' value="<?php 
                         if(isset($reviewInfo['reviewId'])){
@@ -64,7 +67,6 @@
                         } elseif(isset($invModel)){ 
                             echo $invModel;
                         } ?>">
-                    </label>
                 </fieldset>
         
             </form>

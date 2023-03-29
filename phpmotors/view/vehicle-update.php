@@ -118,7 +118,7 @@
                         echo "value='$invInfo[invColor]'";}
                     ?>>
                 </label>
-                <input type="submit" name='submit' class="vehicleSubmitButton submitButton" value='Update Vehicle'>
+                <input type="submit" name='submit' class="vehicleSubmitButton submitButton" value='Update'>
                 <input type="hidden" name='action' value='updateVehicle'>
                 <input type="hidden" name="invId" value="<?php if(isset($invInfo['invId'])){ echo $invInfo['invId'];
                 } elseif(isset($invId)){ echo $invId; } ?>">

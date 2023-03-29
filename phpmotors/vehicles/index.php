@@ -99,12 +99,13 @@
             //Send the data to the model
             $addClassOutcome = addVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 
             $invStock, $invColor, $classificationId);
-            $message = '<p class="successMessage">The car information was successfully added to the database</p>';
             
 
             //Check and report the result
             if($addClassOutcome === 1) {
-                include '../view/addVehicle.php';
+                $message = '<p class="successMessage">The car information was successfully added to the database</p>';
+                $_SESSION['message'] = $message;
+                header('Location: /cse340/phpmotors/vehicles/');
                 exit;
             } else {
                 $message = '<p class="errorMessage"> There was an error adding the classification to the database. Please try again. </p>';

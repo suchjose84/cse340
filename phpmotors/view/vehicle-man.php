@@ -35,6 +35,7 @@
                 <ul class="vehicleManUL">
                     <li><a href="/cse340/phpmotors/vehicles/?action=add-classification">Add Classification</a></li>
                     <li><a href="/cse340/phpmotors/vehicles/?action=add-vehicle">Add Vehicle</a></li>
+                    <li><a href="/cse340/phpmotors/uploads/">Image Management</a></li>
 
                 </ul>
 
