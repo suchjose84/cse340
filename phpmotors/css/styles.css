@@ -713,6 +713,9 @@ fieldset label {
 .reviewListAdmin {
     list-style-type:decimal;
 }
+.vehicleInfoP, .vehicleInfoP a{
+    font-size: 1.2rem;
+}
 
 
 

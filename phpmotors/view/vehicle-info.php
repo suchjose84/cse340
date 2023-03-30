@@ -40,7 +40,27 @@
                 }
             });
         </script>
-        <script src='../js/styles.js'></script>
+        <script>
+            var textarea = document.querySelector(".reviewTextArea");
+            textarea.style.minHeight = '100px';
+            textarea.style.maxHeight = '500px';
+            textarea.style.height = 'auto'; // set height to auto
+
+            // show remaining character
+            var maxLength = textarea.getAttribute('maxlength');
+            var initialChars = maxLength - textarea.value.length;
+            var span = document.querySelector('.remainingSpan');
+            span.innerText = `${initialChars} / ${maxLength}`;
+
+            // update count as user types
+            textarea.addEventListener('input', function() {
+                var remainingChars = maxLength - textarea.value.length;
+                span.innerText = `${remainingChars}/${maxLength}`;
+
+                // set height to auto again
+                textarea.style.height = 'auto';
+            });
+        </script>
 
     </body>
 

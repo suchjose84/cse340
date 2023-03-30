@@ -64,18 +64,8 @@
             }
 
         break;
-        case 'getReviewItems': 
-            // Get review data using review Id
-            $reviewId = trim(filter_input(INPUT_GET, 'reviewId', FILTER_SANITIZE_NUMBER_INT));
-            // Fetch the vehicles by classificationId from the DB 
-            $reviewArray = getReviewsByReviewId($reviewId);
-            // Convert the array to a JSON object and send it back
-            echo json_encode($reviewArray);
-        break;
         case 'mod':
             $reviewId = trim(filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT));
-            // echo ($reviewId);
-            // exit;
             $reviewInfo = getReviewsByReviewId($reviewId);
             if(!$reviewInfo){
                 $message = '<p class="errorMessage">Sorry, no reviews can be found.</p>';
@@ -90,7 +80,6 @@
             $invMake = trim((filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
             $invModel = trim((filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS)));
             
-            // $updated = updateReview(); 
             //Check for missing data
             if(empty($reviewId) || empty($reviewText) || empty($invMake) || empty($invModel)) {
                 $message = '<p class="errorMessage">Please provide information for all empty form fields.</p>';
@@ -99,8 +88,6 @@
             }
             //Send the data to the model
             $updateResult = updateReview($reviewId, $reviewText);
-            $message = '<p class="successMessage">Congratulations! Your review was successfully updated.</p>';
-            
 
             //Check and report the result
             if ($updateResult) {

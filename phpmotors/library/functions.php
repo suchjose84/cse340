@@ -181,7 +181,7 @@
                 $dv .= "<input type='hidden' name='action' value='add-review'>";
             $dv .= '</form>';
         } else {
-            $dv .= '<p>You must <a href="/cse340/phpmotors/accounts/?action=login">log in</a> to create a review</p>';
+            $dv .= '<p class="vehicleInfoP">You must <a href="/cse340/phpmotors/accounts/?action=login">log in</a> to create a review</p>';
         }
         $dv .= "</div>";
 
@@ -196,7 +196,7 @@
             $date = date("F j, Y h:i A", strtotime($review['reviewDate']));
             $dv .= "<form class='formShowReview'>";
             $dv .= "<label class='top'>{$firstLetter}{$review['clientLastname']} wrote on {$date}";
-            $dv .= "<textarea class='top autoSize' readonly>{$review['reviewText']}</textarea></label>";
+            $dv .= "<textarea class='top autoSize reviewVehicleInfo' readonly>{$review['reviewText']}</textarea></label>";
             $dv .= "</form>";
         }
         $dv .= '</div>';

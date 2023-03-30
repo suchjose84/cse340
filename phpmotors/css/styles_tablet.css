@@ -157,8 +157,9 @@
 
     /* Reviews section */
 
-    /* .reviewDivs {
-        font-size: 1.3rem;
-    } */
-
+    .formShowReview {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
 }
