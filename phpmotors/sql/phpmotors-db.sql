@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2023 at 12:45 AM
+-- Generation Time: Mar 30, 2023 at 05:32 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -68,7 +68,7 @@ CREATE TABLE `clients` (
 INSERT INTO `clients` (`clientId`, `clientFirstname`, `clientLastname`, `clientEmail`, `clientPassword`, `clientLevel`, `comment`) VALUES
 (2, 'Admin', 'User', 'admin@cit340.net', '$2y$10$65UjEoEtTLu17qmfJT23ruUqbskzNy7XPx/RnScXjtzz.khYh7Pim', '3', NULL),
 (3, 'Jose', 'Such', 'suchjose@yahoo.com', '$2y$10$/Yv7gAuPUIV/3uhOZbNRwOOA3wC13uJnrVuVbiB8v7buChc1X7mcq', '1', NULL),
-(4, 'Jose', 'Such', 'suchjose@live.com', '$2y$10$RoMl/mGdr2T3YYZ0jSoXgOZGSDsnTxZD/fAOQoU/.Y/8Sw2avqs3C', '3', NULL);
+(4, 'Jose', 'Such', 'suchjose@live.com', '$2y$10$VS5Jau9HOgVBsgsa.ZgmJO.4yOPM789mH.wejRJHtQVX.swg6xpNK', '3', NULL);
 
 -- --------------------------------------------------------
 
@@ -203,7 +203,10 @@ INSERT INTO `reviews` (`reviewId`, `reviewText`, `reviewDate`, `invId`, `clientI
 (76, 'What&#039;s I love about this car is because it&#039;s a Ford.', '2023-03-29 01:44:58', 2, 4),
 (81, 'fasfasfasdf\r\nasfasdfasdfasdf\r\nasdfasdfasfasdf\r\nasdfasdfasdf\r\nasdfasdfasdf', '2023-03-29 20:12:55', 1, 4),
 (82, 'dfasdfasfasfd', '2023-03-29 20:14:52', 1, 4),
-(84, 'Hi! I&#039;m Batman', '2023-03-29 21:23:36', 6, 4);
+(84, 'Hi! I&#039;m Batman', '2023-03-29 21:23:36', 6, 4),
+(85, 'This vehicle is perfect for my budget. For real!', '2023-03-30 00:26:27', 5, 4),
+(90, 'Hasdfasdfasdfasdfasdadsf', '2023-03-30 02:43:31', 4, 4),
+(91, 'asdfasdfasdfasdfasdfas', '2023-03-30 03:05:44', 4, 4);
 
 --
 -- Indexes for dumped tables
@@ -275,7 +278,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `reviewId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `reviewId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- Constraints for dumped tables
