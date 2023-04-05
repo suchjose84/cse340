@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Template | PHPMotors</title>
+    <title><?php if(isset($reviewInfo['invMake']) && isset($reviewInfo['invModel'])){ 
+                echo "Edit $reviewInfo[invMake] $reviewInfo[invModel] Review";} 
+                elseif(isset($invMake) && isset($invModel)) { 
+                echo "Edit $invMake $invModel Review"; }
+            ?> | PHPMotors</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles.css" media="screen">
     <link rel="stylesheet" href="/cse340/phpmotors/css/styles_tablet.css" media="screen">
